@@ -1,0 +1,2 @@
+source C:/Espressif/PROJ/esp-rainmaker/examples/switch/build/bootloader/gdbinit/symbols
+source C:/Espressif/PROJ/esp-rainmaker/examples/switch/build/bootloader/gdbinit/connect
