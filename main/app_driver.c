@@ -1,6 +1,10 @@
-/* Switch demo implementation using button and RGB LED
+/* Projeto base ESP RainMaker para dispositivos com botão físico e LED externo
    
-   This example code is in the Public Domain (or CC0 licensed, at your option.)
+   Este projeto serve como template para novos dispositivos ESP RainMaker.
+   Implementa controle de relé/saída via botão físico (GPIO4) e LED indicador externo (GPIO5).
+   Não realiza mais reset Wi-Fi/fábrica via botão.
+   
+   Código em domínio público (Public Domain/CC0).
 
    Unless required by applicable law or agreed to in writing, this
    software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
