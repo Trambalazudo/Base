@@ -1,0 +1,121 @@
+[1/10] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/app_main.c.obj
+C:/Espressif/PROJ/esp-rainmaker/examples/switch/main/app_main.c: In function 'write_cb':
+C:/Espressif/PROJ/esp-rainmaker/examples/switch/main/app_main.c:63:78: warning: passing argument 1 of 'esp_rmaker_param_get_val' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+   63 |             const esp_rmaker_param_val_t *current = esp_rmaker_param_get_val(param);
+      |                                                                              ^~~~~
+In file included from C:/Espressif/PROJ/esp-rainmaker/examples/switch/main/app_main.c:18:
+C:/Espressif/PROJ/esp-rainmaker/components/esp_rainmaker/include/esp_rmaker_core.h:955:70: note: expected 'esp_rmaker_param_t *' {aka 'unsigned int *'} but argument is of type 'const esp_rmaker_param_t *' {aka 'const unsigned int *'}
+  955 | esp_rmaker_param_val_t *esp_rmaker_param_get_val(esp_rmaker_param_t *param);
+      |                                                  ~~~~~~~~~~~~~~~~~~~~^~~~~
+[2/10] Linking C static library esp-idf\main\libmain.a
+[3/10] Performing build step for 'bootloader'
+[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Espressif\PROJ\esp-rainmaker\examples\switch\build\bootloader\esp-idf\esptool_py && C:\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.3.3/components/partition_table/check_sizes.py --offset 0xc000 bootloader 0x1000 C:/Espressif/PROJ/esp-rainmaker/examples/switch/build/bootloader/bootloader.bin"
+Bootloader binary size 0x6920 bytes. 0x46e0 bytes (40%) free.
+[4/10] No install step for 'bootloader'
+[5/10] Completed 'bootloader'
+[6/10] Generating ld/sections.ld
+[7/10] Linking CXX executable switch.elf
+[8/10] Generating binary image from built executable
+esptool.py v4.8.1
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
+Generated C:/Espressif/PROJ/esp-rainmaker/examples/switch/build/switch.bin
+[9/10] C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Espressif\PROJ\esp-rainmaker\examples\switch\build\esp-idf\esptool_py && C:\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.3.3/components/partition_table/check_sizes.py --offset 0xc000 partition --type app C:/Espressif/PROJ/esp-rainmaker/examples/switch/build/partition_table/partition-table.bin C:/Espressif/PROJ/esp-rainmaker/examples/switch/build/switch.bin"
+switch.bin binary size 0x178940 bytes. Smallest app partition is 0x1e0000 bytes. 0x676c0 bytes (22%) free.
+[9/10] C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Espressif\frameworks\esp-idf-v5.3.3\components\esptool_py && C:\Espressif\tools\cmake\3.30.2\bin\cmake.exe -D IDF_PATH=C:/Espressif/frameworks/esp-idf-v5.3.3 -D SERIAL_TOOL=C:/Espressif/python_env/idf5.3_py3.11_env/Scripts/python.exe;;C:/Espressif/frameworks/esp-idf-v5.3.3/components/esptool_py/esptool/esptool.py;--chip;esp32 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D WORKING_DIRECTORY=C:/Espressif/PROJ/esp-rainmaker/examples/switch/build -P C:/Espressif/frameworks/esp-idf-v5.3.3/components/esptool_py/run_serial_tool.cmake"
+esptool.py --chip esp32 -p COM5 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 4MB 0x1000 bootloader/bootloader.bin 0x20000 switch.bin 0xc000 partition_table/partition-table.bin 0x16000 ota_data_initial.bin
+esptool.py v4.8.1
+Serial port COM5
+Connecting....
+Chip is ESP32-D0WD-V3 (revision v3.1)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: 1c:69:20:a3:b5:ec
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00001000 to 0x00007fff...
+Flash will be erased from 0x00020000 to 0x00198fff...
+Flash will be erased from 0x0000c000 to 0x0000cfff...
+Flash will be erased from 0x00016000 to 0x00017fff...
+SHA digest in image updated
+Compressed 26912 bytes to 16516...
+Writing at 0x00001000... (50 %)
+Writing at 0x0000786c... (100 %)
+Wrote 26912 bytes (16516 compressed) at 0x00001000 in 0.8 seconds (effective 279.6 kbit/s)...
+Hash of data verified.
+Compressed 1542464 bytes to 927767...
+Writing at 0x00020000... (1 %)
+Writing at 0x0002f569... (3 %)
+Writing at 0x0003d91d... (5 %)
+Writing at 0x0004cb97... (7 %)
+Writing at 0x000574e4... (8 %)
+Writing at 0x0005d16c... (10 %)
+Writing at 0x00065573... (12 %)
+Writing at 0x00071b68... (14 %)
+Writing at 0x000774f0... (15 %)
+Writing at 0x0007d7c9... (17 %)
+Writing at 0x00083521... (19 %)
+Writing at 0x0008939c... (21 %)
+Writing at 0x0008ed9a... (22 %)
+Writing at 0x000950db... (24 %)
+Writing at 0x0009b789... (26 %)
+Writing at 0x000a191d... (28 %)
+Writing at 0x000a796d... (29 %)
+Writing at 0x000ad7bd... (31 %)
+Writing at 0x000b37a8... (33 %)
+Writing at 0x000b95ed... (35 %)
+Writing at 0x000bf4f3... (36 %)
+Writing at 0x000c548e... (38 %)
+Writing at 0x000cae4b... (40 %)
+Writing at 0x000d0d6c... (42 %)
+Writing at 0x000d6b39... (43 %)
+Writing at 0x000dc77e... (45 %)
+Writing at 0x000e3007... (47 %)
+Writing at 0x000e8ca0... (49 %)
+Writing at 0x000eeb99... (50 %)
+Writing at 0x000f533d... (52 %)
+Writing at 0x000fb104... (54 %)
+Writing at 0x001010bb... (56 %)
+Writing at 0x001069fa... (57 %)
+Writing at 0x0010bd12... (59 %)
+Writing at 0x001110ba... (61 %)
+Writing at 0x001166ac... (63 %)
+Writing at 0x0011ba64... (64 %)
+Writing at 0x00121086... (66 %)
+Writing at 0x00126828... (68 %)
+Writing at 0x0012c401... (70 %)
+Writing at 0x00131aef... (71 %)
+Writing at 0x0013775f... (73 %)
+Writing at 0x0013d433... (75 %)
+Writing at 0x00142d32... (77 %)
+Writing at 0x00148a2e... (78 %)
+Writing at 0x0014ec69... (80 %)
+Writing at 0x001550b1... (82 %)
+Writing at 0x0015bc9c... (84 %)
+Writing at 0x00164a8c... (85 %)
+Writing at 0x0016be5d... (87 %)
+Writing at 0x00171af9... (89 %)
+Writing at 0x00178184... (91 %)
+Writing at 0x0017e618... (92 %)
+Writing at 0x00183f97... (94 %)
+Writing at 0x00189a57... (96 %)
+Writing at 0x0018fc6b... (98 %)
+Writing at 0x00194f72... (100 %)
+Wrote 1542464 bytes (927767 compressed) at 0x00020000 in 23.3 seconds (effective 530.3 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 198...
+Writing at 0x0000c000... (100 %)
+Wrote 3072 bytes (198 compressed) at 0x0000c000 in 0.1 seconds (effective 283.8 kbit/s)...
+Hash of data verified.
+Compressed 8192 bytes to 31...
+Writing at 0x00016000... (100 %)
+Wrote 8192 bytes (31 compressed) at 0x00016000 in 0.1 seconds (effective 876.9 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

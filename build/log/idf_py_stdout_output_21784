@@ -1,0 +1,235 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FA�ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15728
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.3.3-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Jun  5 2025 00:25:00[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v3.1[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 esp_secure_cert  unknown          3f 06 0000d000 00002000[0m
+[0;32mI (77) boot:  1 nvs_key          NVS keys         01 04 0000f000 00001000[0m
+[0;32mI (85) boot:  2 nvs              WiFi data        01 02 00010000 00006000[0m
+[0;32mI (92) boot:  3 otadata          OTA data         01 00 00016000 00002000[0m
+[0;32mI (99) boot:  4 phy_init         RF data          01 01 00018000 00001000[0m
+[0;32mI (107) boot:  5 ota_0            OTA app          00 10 00020000 001e0000[0m
+[0;32mI (115) boot:  6 ota_1            OTA app          00 11 00200000 001e0000[0m
+[0;32mI (122) boot:  7 reserved         unknown          06 06 003e0000 0001a000[0m
+[0;32mI (130) boot:  8 fctry            WiFi data        01 02 003fa000 00006000[0m
+[0;32mI (137) boot: End of partition table[0m
+[0;32mI (142) boot: No factory image, trying OTA 0[0m
+[0;32mI (146) esp_image: segment 0: paddr=00020020 vaddr=3f400020 size=4b74ch (309068) map[0m
+[0;32mI (261) esp_image: segment 1: paddr=0006b774 vaddr=3ff80063 size=00008h (     8) load[0m
+[0;32mI (261) esp_image: segment 2: paddr=0006b784 vaddr=3ffbdb60 size=04894h ( 18580) load[0m
+[0;32mI (274) esp_image: segment 3: paddr=00070020 vaddr=400d0020 size=107f24h (1081124) map[0m
+[0;32mI (646) esp_image: segment 4: paddr=00177f4c vaddr=3ffc23f4 size=016fch (  5884) load[0m
+[0;32mI (648) esp_image: segment 5: paddr=00179650 vaddr=40080000 size=1f250h (127568) load[0m
+[0;32mI (701) esp_image: segment 6: paddr=001988a8 vaddr=400c0000 size=00064h (   100) load[0m
+[0;32mI (718) boot: Loaded app from partition at offset 0x20000[0m
+[0;32mI (718) boot: Set actual ota_seq=1 in otadata[0][0m
+[0;32mI (718) boot: Disabling RNG early entropy source...[0m
+[0;32mI (735) cpu_start: Multicore app[0m
+[0;32mI (744) cpu_start: Pro cpu start user code[0m
+[0;32mI (744) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (744) app_init: Application information:[0m
+[0;32mI (747) app_init: Project name:     switch[0m
+[0;32mI (752) app_init: App version:      1.0[0m
+[0;32mI (756) app_init: Compile time:     Jun  5 2025 00:24:38[0m
+[0;32mI (762) app_init: ELF file SHA256:  d0befa670...[0m
+[0;32mI (767) app_init: ESP-IDF:          v5.3.3-dirty[0m
+[0;32mI (773) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (777) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (782) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (787) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (795) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (800) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (807) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (813) heap_init: At 3FFCB7B0 len 00014850 (82 KiB): DRAM[0m
+[0;32mI (819) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (825) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (832) heap_init: At 4009F250 len 00000DB0 (3 KiB): IRAM[0m
+[0;32mI (840) spi_flash: detected chip: generic[0m
+[0;32mI (842) spi_flash: flash io: dio[0m
+[0;33mW (847) ADC: legacy driver is deprecated, please migrate to `esp_adc/adc_oneshot.h`[0m
+[0;32mI (856) coexist: coex firmware version: 85a8de8[0m
+[0;32mI (861) main_task: Started on CPU0[0m
+[0;32mI (871) main_task: Calling app_main()[0m
+[0;31mE (871) network_prov_mgr: esp_wifi_restore fail, ret is 12289[0m
+[0;32mI (871) esp_rmaker_console: Initialising UART on port 0[0m
+[0;32mI (881) uart: queue free spaces: 8[0m
+[0;32mI (881) esp_rmaker_commands: Registering command: reboot[0m
+[0;32mI (881) esp_rmaker_commands: Registering command: up-time[0m
+[0;32mI (891) esp_rmaker_commands: Registering command: mem-dump[0m
+[0;32mI (901) esp_rmaker_commands: Registering command: task-dump[0m
+[0;32mI (901) esp_rmaker_commands: Registering command: cpu-dump[0m
+[0;32mI (911) esp_rmaker_commands: Registering command: sock-dump[0m
+[0;32mI (921) esp_rmaker_commands: Registering command: heap-trace[0m
+[0;32mI (921) esp_rmaker_commands: Registering command: reset-to-factory[0m
+[0;32mI (931) esp_rmaker_commands: Registering command: local-time[0m
+[0;32mI (941) esp_rmaker_commands: Registering command: tz-set[0m
+[0;32mI (941) esp_rmaker_commands: Registering command: add-user[0m
+[0;32mI (951) esp_rmaker_commands: Registering command: get-node-id[0m
+[0;32mI (951) esp_rmaker_commands: Registering command: wifi-prov[0m
+[0;32mI (961) esp_rmaker_commands: Registering command: cmd[0m
+[0;32mI (971) esp_rmaker_commands: Registering command: sign-data[0m
+[0;32mI (971) gpio: GPIO[13]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (981) gpio: GPIO[13]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:3 [0m
+[0;32mI (991) gpio: GPIO[12]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;31mE (1001) gpio: gpio_install_isr_service(502): GPIO isr service already installed[0m
+[0;32mI (1011) gpio: GPIO[12]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:3 [0m
+[0;32mI (1021) gpio: GPIO[5]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1031) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1041) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;31mE (1051) esp_rmaker_device: Device handle or param name cannot be NULL[0m
+[0;32mI (1121) wifi:wifi driver task: 3ffd2964, prio:23, stack:6656, core=0[0m
+[0;32mI (1151) wifi:wifi firmware version: b0b320f[0m
+[0;32mI (1151) wifi:wifi certification version: v7.0[0m
+[0;32mI (1151) wifi:config NVS flash: enabled[0m
+[0;32mI (1151) wifi:config nano formating: disabled[0m
+[0;32mI (1151) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1161) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1161) wifi:Init management short buffer num: 32[0m
+[0;32mI (1161) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (1171) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1171) wifi:Init static rx buffer num: 10[0m
+[0;32mI (1181) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1181) wifi_init: rx ba win: 6[0m
+[0;32mI (1181) wifi_init: accept mbox: 6[0m
+[0;32mI (1191) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1191) wifi_init: udp mbox: 6[0m
+[0;32mI (1201) wifi_init: tcp mbox: 6[0m
+[0;32mI (1201) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1201) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1211) wifi_init: tcp mss: 1440[0m
+[0;32mI (1211) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1221) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1241) esp_rmaker_work_queue: Work Queue created.[0m
+[0;32mI (1251) esp_mqtt_glue: AWS PPI: ?Platform=APN3|A0|RM|EX00|RMDev|1x0|1C6920A3B5EC[0m
+[0;32mI (1251) esp_mqtt_glue: Initialising MQTT[0m
+[0;32mI (1261) esp_rmaker_mqtt_budget: MQTT Budgeting initialised. Default: 100, Max: 1024, Revive count: 1, Revive period: 5[0m
+[0;33mW (1271) app_main: [DEBUG] event_handler: event_base=0x3f405d60, event_id=1[0m
+[0;32mI (1271) app_main: RainMaker Initialised.[0m
+[0;32mI (1281) esp_rmaker_node: Node ID ----- C3hxXXzifDrh9CQjyNLhjQ[0m
+[0;32mI (1291) esp_rmaker_ota_using_topics: OTA enabled with Topics[0m
+[0;32mI (1291) esp_rmaker_ota: OTA state = 2[0m
+[0;32mI (1301) esp_rmaker_time: Initializing SNTP. Using the SNTP server: pool.ntp.org[0m
+[0;32mI (1311) esp_rmaker_time_service: Time service enabled[0m
+[0;32mI (1311) esp_rmaker_time: SNTP already initialized.[0m
+[0;32mI (1321) app_insights: Enable CONFIG_ESP_INSIGHTS_ENABLED to get Insights.[0m
+[0;32mI (1321) esp_rmaker_core: Starting RainMaker Work Queue task[0m
+[0;32mI (1331) esp_rmaker_work_queue: RainMaker Work Queue task started.[0m
+[0;32mI (1341) tag: 0x3ffdaeac   e5 02 4e 6f 76 61 00 01  00 80 01 00              |..Nova......|[0m
+[0;32mI (1351) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (1351) network_prov_scheme_ble: BT memory released[0m
+[0;32mI (1361) app_wifi: Already provisioned, starting Wi-Fi STA[0m
+[0;32mI (1361) network_prov_scheme_ble: BTDM memory released[0m
+[0;32mI (1371) esp_rmaker_local: Event 6[0m
+[0;32mI (1371) phy_init: phy_version 4860,6b7a6e5,Feb  6 2025,14:47:07[0m
+[0;32mI (1461) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (1541) wifi:mode : sta (1c:69:20:a3:b5:ec)[0m
+[0;32mI (1541) wifi:enable tsf[0m
+[0;32mI (3961) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (3961) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (3971) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (3981) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (3991) wifi:<ba-add>idx:0 (ifx:0, 98:9d:5d:c0:fb:d1), tid:0, ssn:0, winSize:64[0m
+[0;32mI (4011) wifi:connected with NOWO_Sc8p8Eg, aid = 8, channel 1, BW20, bssid = 98:9d:5d:c0:fb:d1[0m
+[0;32mI (4011) wifi:security: WPA2-PSK, phy: bgn, rssi: -66[0m
+[0;32mI (4011) wifi:pm start, type: 1[0m
+
+[0;32mI (4011) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (4021) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (8031) esp_netif_handlers: sta ip: 192.168.0.18, mask: 255.255.255.0, gw: 192.168.0.1[0m
+[0;32mI (8031) app_network: Connected with IP Address:192.168.0.18[0m
+[0;32mI (8031) esp_rmaker_cmd_resp: Enabling Command-Response Module.[0m
+[0;32mI (8031) app_main: Aguardando sincronização de horário via SNTP...[0m
+[0;32mI (8041) esp_rmaker_node: Node attribute cmd-resp created[0m
+[0;32mI (8051) esp_rmaker_local: Enabling Local Control[0m
+[0;32mI (8061) esp_rmaker_local: Local Control Service Enabled[0m
+[0;32mI (8061) esp_rmaker_local: Starting ESP Local control with HTTP Transport and security version: 1[0m
+[0;32mI (8081) mdns_mem: mDNS task will be created from internal RAM[0m
+[0;32mI (8081) esp_https_server: Starting server[0m
+[0;32mI (8091) esp_https_server: Server listening on port 8080[0m
+[0;32mI (8091) esp_rmaker_local: esp_local_ctrl service started with name : C3hxXXzifDrh9CQjyNLhjQ[0m
+[0;33mW (8101) app_main: [DEBUG] event_handler: event_base=0x3f405d60, event_id=6[0m
+[0;32mI (8111) esp_mqtt_glue: Connecting to a1p72mufdu6064-ats.iot.us-east-1.amazonaws.com[0m
+[0;32mI (8111) app_main: Local Control Started.[0m
+[0;32mI (8121) esp_rmaker_core: Waiting for MQTT connection[0m
+[0;33mW (8081) esp_rmaker_time: Waiting for time to be synchronized. This may take time.[0m
+[0;32mI (8631) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (10381) esp_mqtt_glue: MQTT Connected[0m
+[0;33mW (10391) app_main: [DEBUG] event_handler: event_base=0x3f41a6d8, event_id=3[0m
+[0;33mW (10391) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=3[0m
+[0;32mI (10391) app_main: MQTT Connected.[0m
+[0;32mI (10401) esp_rmaker_cmd_resp: Checking for pending commands.[0m
+[0;32mI (10421) esp_rmaker_node_config: Generated Node config of length 1822[0m
+[0;32mI (10431) esp_rmaker_param: Params MQTT Init done.[0m
+[0;32mI (10431) esp_rmaker_param: Reporting params (init): {"Switch":{"Name":"Switch","LED":false,"Medir Bateria":false,"Baterias 18650":0.00000,"Status Bateria":"OK"},"Time":{"TZ":"Europe/Lisbon","TZ-POSIX":"WET0WEST,M3.5.0/1,M10.5.0"},"Schedule":{"Schedules":[]},"Scenes":{"Scenes":[]},"Local Control":{"POP":"5e845d39","Type":1}}[0m
+[0;32mI (10451) esp_rmaker_ota_using_topics: Subscribing to: node/C3hxXXzifDrh9CQjyNLhjQ/otaurl[0m
+[0;33mW (10581) app_main: [DEBUG] event_handler: event_base=0x3f41a6d8, event_id=5[0m
+[0;33mW (10581) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (10591) app_main: MQTT Published. Msg id: 21280.[0m
+[0;33mW (10781) app_main: [DEBUG] event_handler: event_base=0x3f41a6d8, event_id=5[0m
+[0;33mW (10781) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (10791) app_main: MQTT Published. Msg id: 56224.[0m
+[0;33mW (10791) app_main: [DEBUG] event_handler: event_base=0x3f41a6d8, event_id=5[0m
+[0;33mW (10801) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (10801) app_main: MQTT Published. Msg id: 14637.[0m
+[0;32mI (11351) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (15461) esp_rmaker_ota_using_topics: Fetching OTA details, if any.[0m
+[0;33mW (15691) app_main: [DEBUG] event_handler: event_base=0x3f41a6d8, event_id=5[0m
+[0;33mW (15701) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (15701) app_main: MQTT Published. Msg id: 24866.[0m
+[0;32mI (21351) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (21361) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (21361) BATERIA: ADC=2127 vADC=1.714 vBat=3.942[0m
+[0;32mI (21361) BATERIA: ADC=2115 vADC=1.704 vBat=3.920[0m
+[0;32mI (21361) BATERIA: ADC=2126 vADC=1.713 vBat=3.940[0m
+[0;32mI (21371) BATERIA: ADC=2112 vADC=1.702 vBat=3.915[0m
+[0;32mI (21371) BATERIA: ADC=2119 vADC=1.708 vBat=3.928[0m
+[0;32mI (21381) BATERIA: ADC=2047 vADC=1.650 vBat=3.794[0m
+[0;32mI (21381) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (21391) BATERIA: ADC=2135 vADC=1.721 vBat=3.957[0m
+[0;32mI (21391) BATERIA: ADC=2117 vADC=1.706 vBat=3.924[0m
+[0;32mI (21401) BATERIA: ADC=2117 vADC=1.706 vBat=3.924[0m
+[0;32mI (21401) BATERIA: ADC=2119 vADC=1.708 vBat=3.928[0m
+[0;32mI (21411) BATERIA: ADC=2117 vADC=1.706 vBat=3.924[0m
+[0;32mI (21421) BATERIA: ADC=2031 vADC=1.637 vBat=3.764[0m
+[0;32mI (21421) BATERIA: ADC=2130 vADC=1.716 vBat=3.948[0m
+[0;32mI (21431) BATERIA: ADC=2126 vADC=1.713 vBat=3.940[0m
+[0;32mI (31351) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (35051) esp_rmaker_time: SNTP Synchronised.[0m
+[0;32mI (35061) esp_rmaker_time: The current time is: Fri Jun  6 22:34:51 2025 +0100[WEST], DST: Yes.[0m
+[0;32mI (36141) esp_rmaker_time: The current time is: Fri Jun  6 22:34:52 2025 +0100[WEST], DST: Yes.[0m
+[0;32mI (36141) app_main: Horário sincronizado com sucesso.[0m
+[0;32mI (36141) app_main: Horário local antes da decisão de sleep: Fri Jun  6 22:34:52 2025 +0100[WEST], DST: Yes[0m
+[0;33mW (36151) app_main: [DEBUG] event_handler: event_base=0x3f41a6d8, event_id=6[0m
+[0;33mW (36161) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=6[0m
+[0;33mW (36171) app_main: Unhandled RainMaker Common Event: 6[0m
+[0;32mI (36171) esp_rmaker_time: The current time is: Fri Jun  6 22:34:52 2025 +0100[WEST], DST: Yes.[0m
+[0;33mW (36181) app_main: [DEBUG] event_handler: event_base=0x3f41a6d8, event_id=7[0m
+[0;33mW (36191) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=7[0m
+[0;33mW (36201) app_main: Unhandled RainMaker Common Event: 7[0m
+[0;32mI (36201) main_task: Returned from app_main()[0m
+[0;32mI (41351) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (51351) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (61351) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (71351) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (81351) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (91351) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (101351) MONITOR: GPIO5 (LED): 0 |

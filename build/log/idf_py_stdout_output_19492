@@ -1,0 +1,1041 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_R�ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15728
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.3.3-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Jun  5 2025 00:25:00[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v3.1[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 esp_secure_cert  unknown          3f 06 0000d000 00002000[0m
+[0;32mI (77) boot:  1 nvs_key          NVS keys         01 04 0000f000 00001000[0m
+[0;32mI (85) boot:  2 nvs              WiFi data        01 02 00010000 00006000[0m
+[0;32mI (92) boot:  3 otadata          OTA data         01 00 00016000 00002000[0m
+[0;32mI (99) boot:  4 phy_init         RF data          01 01 00018000 00001000[0m
+[0;32mI (107) boot:  5 ota_0            OTA app          00 10 00020000 001e0000[0m
+[0;32mI (115) boot:  6 ota_1            OTA app          00 11 00200000 001e0000[0m
+[0;32mI (122) boot:  7 reserved         unknown          06 06 003e0000 0001a000[0m
+[0;32mI (130) boot:  8 fctry            WiFi data        01 02 003fa000 00006000[0m
+[0;32mI (137) boot: End of partition table[0m
+[0;32mI (142) boot: No factory image, trying OTA 0[0m
+[0;32mI (146) esp_image: segment 0: paddr=00020020 vaddr=3f400020 size=4b78ch (309132) map[0m
+[0;32mI (261) esp_image: segment 1: paddr=0006b7b4 vaddr=3ff80063 size=00008h (     8) load[0m
+[0;32mI (261) esp_image: segment 2: paddr=0006b7c4 vaddr=3ffbdb60 size=04854h ( 18516) load[0m
+[0;32mI (274) esp_image: segment 3: paddr=00070020 vaddr=400d0020 size=107fd0h (1081296) map[0m
+[0;32mI (646) esp_image: segment 4: paddr=00177ff8 vaddr=3ffc23b4 size=0173ch (  5948) load[0m
+[0;32mI (648) esp_image: segment 5: paddr=0017973c vaddr=40080000 size=1f250h (127568) load[0m
+[0;32mI (701) esp_image: segment 6: paddr=00198994 vaddr=400c0000 size=00064h (   100) load[0m
+[0;32mI (718) boot: Loaded app from partition at offset 0x20000[0m
+[0;32mI (718) boot: Set actual ota_seq=1 in otadata[0][0m
+[0;32mI (719) boot: Disabling RNG early entropy source...[0m
+[0;32mI (735) cpu_start: Multicore app[0m
+[0;32mI (744) cpu_start: Pro cpu start user code[0m
+[0;32mI (744) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (744) app_init: Application information:[0m
+[0;32mI (747) app_init: Project name:     switch[0m
+[0;32mI (752) app_init: App version:      1.0[0m
+[0;32mI (756) app_init: Compile time:     Jun  5 2025 00:24:38[0m
+[0;32mI (762) app_init: ELF file SHA256:  a236bf47a...[0m
+[0;32mI (767) app_init: ESP-IDF:          v5.3.3-dirty[0m
+[0;32mI (773) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (778) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (782) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (788) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (795) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (801) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (807) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (813) heap_init: At 3FFCB7B0 len 00014850 (82 KiB): DRAM[0m
+[0;32mI (819) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (825) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (832) heap_init: At 4009F250 len 00000DB0 (3 KiB): IRAM[0m
+[0;32mI (840) spi_flash: detected chip: generic[0m
+[0;32mI (842) spi_flash: flash io: dio[0m
+[0;33mW (847) ADC: legacy driver is deprecated, please migrate to `esp_adc/adc_oneshot.h`[0m
+[0;32mI (856) coexist: coex firmware version: 85a8de8[0m
+[0;32mI (861) main_task: Started on CPU0[0m
+[0;32mI (871) main_task: Calling app_main()[0m
+[0;31mE (871) network_prov_mgr: esp_wifi_restore fail, ret is 12289[0m
+[0;32mI (871) esp_rmaker_console: Initialising UART on port 0[0m
+[0;32mI (881) uart: queue free spaces: 8[0m
+[0;32mI (881) esp_rmaker_commands: Registering command: reboot[0m
+[0;32mI (881) esp_rmaker_commands: Registering command: up-time[0m
+[0;32mI (891) esp_rmaker_commands: Registering command: mem-dump[0m
+[0;32mI (901) esp_rmaker_commands: Registering command: task-dump[0m
+[0;32mI (901) esp_rmaker_commands: Registering command: cpu-dump[0m
+[0;32mI (911) esp_rmaker_commands: Registering command: sock-dump[0m
+[0;32mI (921) esp_rmaker_commands: Registering command: heap-trace[0m
+[0;32mI (921) esp_rmaker_commands: Registering command: reset-to-factory[0m
+[0;32mI (931) esp_rmaker_commands: Registering command: local-time[0m
+[0;32mI (941) esp_rmaker_commands: Registering command: tz-set[0m
+[0;32mI (941) esp_rmaker_commands: Registering command: add-user[0m
+[0;32mI (951) esp_rmaker_commands: Registering command: get-node-id[0m
+[0;32mI (951) esp_rmaker_commands: Registering command: wifi-prov[0m
+[0;32mI (961) esp_rmaker_commands: Registering command: cmd[0m
+[0;32mI (971) esp_rmaker_commands: Registering command: sign-data[0m
+[0;32mI (971) gpio: GPIO[13]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (981) gpio: GPIO[13]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:3 [0m
+[0;32mI (991) gpio: GPIO[12]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;31mE (1001) gpio: gpio_install_isr_service(502): GPIO isr service already installed[0m
+[0;32mI (1011) gpio: GPIO[12]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:3 [0m
+[0;32mI (1021) gpio: GPIO[5]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1031) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1041) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;31mE (1051) esp_rmaker_device: Device handle or param name cannot be NULL[0m
+[0;32mI (1121) wifi:wifi driver task: 3ffd2a40, prio:23, stack:6656, core=0[0m
+[0;32mI (1141) wifi:wifi firmware version: b0b320f[0m
+[0;32mI (1141) wifi:wifi certification version: v7.0[0m
+[0;32mI (1141) wifi:config NVS flash: enabled[0m
+[0;32mI (1151) wifi:config nano formating: disabled[0m
+[0;32mI (1151) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1151) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1161) wifi:Init management short buffer num: 32[0m
+[0;32mI (1161) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (1171) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1171) wifi:Init static rx buffer num: 10[0m
+[0;32mI (1181) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1181) wifi_init: rx ba win: 6[0m
+[0;32mI (1181) wifi_init: accept mbox: 6[0m
+[0;32mI (1191) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1191) wifi_init: udp mbox: 6[0m
+[0;32mI (1191) wifi_init: tcp mbox: 6[0m
+[0;32mI (1201) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1201) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1211) wifi_init: tcp mss: 1440[0m
+[0;32mI (1211) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1221) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1241) esp_rmaker_work_queue: Work Queue created.[0m
+[0;32mI (1251) esp_mqtt_glue: AWS PPI: ?Platform=APN3|A0|RM|EX00|RMDev|1x0|1C6920A3B5EC[0m
+[0;32mI (1251) esp_mqtt_glue: Initialising MQTT[0m
+[0;32mI (1261) esp_rmaker_mqtt_budget: MQTT Budgeting initialised. Default: 100, Max: 1024, Revive count: 1, Revive period: 5[0m
+[0;33mW (1271) app_main: [DEBUG] event_handler: event_base=0x3f405da8, event_id=1[0m
+[0;32mI (1271) app_main: RainMaker Initialised.[0m
+[0;32mI (1281) esp_rmaker_node: Node ID ----- C3hxXXzifDrh9CQjyNLhjQ[0m
+[0;32mI (1291) esp_rmaker_ota_using_topics: OTA enabled with Topics[0m
+[0;32mI (1291) esp_rmaker_ota: OTA state = 2[0m
+[0;32mI (1301) esp_rmaker_time: Initializing SNTP. Using the SNTP server: pool.ntp.org[0m
+[0;32mI (1311) esp_rmaker_time_service: Time service enabled[0m
+[0;32mI (1311) esp_rmaker_time: SNTP already initialized.[0m
+[0;32mI (1321) app_insights: Enable CONFIG_ESP_INSIGHTS_ENABLED to get Insights.[0m
+[0;32mI (1321) esp_rmaker_core: Starting RainMaker Work Queue task[0m
+[0;32mI (1331) esp_rmaker_work_queue: RainMaker Work Queue task started.[0m
+[0;32mI (1341) tag: 0x3ffdaf88   e5 02 4e 6f 76 61 00 01  00 80 01 00              |..Nova......|[0m
+[0;32mI (1351) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (1351) network_prov_scheme_ble: BT memory released[0m
+[0;32mI (1361) app_wifi: Already provisioned, starting Wi-Fi STA[0m
+[0;32mI (1361) network_prov_scheme_ble: BTDM memory released[0m
+[0;32mI (1371) esp_rmaker_local: Event 6[0m
+[0;32mI (1371) phy_init: phy_version 4860,6b7a6e5,Feb  6 2025,14:47:07[0m
+[0;32mI (1461) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (1491) wifi:mode : sta (1c:69:20:a3:b5:ec)[0m
+[0;32mI (1491) wifi:enable tsf[0m
+[0;32mI (3911) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (3911) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (3921) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (3921) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (3931) wifi:<ba-add>idx:0 (ifx:0, 98:9d:5d:c0:fb:d1), tid:0, ssn:0, winSize:64[0m
+[0;32mI (3951) wifi:connected with NOWO_Sc8p8Eg, aid = 8, channel 1, BW20, bssid = 98:9d:5d:c0:fb:d1[0m
+[0;32mI (3951) wifi:security: WPA2-PSK, phy: bgn, rssi: -60[0m
+[0;32mI (3961) wifi:pm start, type: 1[0m
+
+[0;32mI (3961) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (3971) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (6471) esp_netif_handlers: sta ip: 192.168.0.18, mask: 255.255.255.0, gw: 192.168.0.1[0m
+[0;32mI (6471) app_network: Connected with IP Address:192.168.0.18[0m
+[0;32mI (6471) esp_rmaker_cmd_resp: Enabling Command-Response Module.[0m
+[0;32mI (6471) app_main: Aguardando sincronização de horário via SNTP...[0m
+[0;32mI (6481) esp_rmaker_node: Node attribute cmd-resp created[0m
+[0;32mI (6491) esp_rmaker_local: Enabling Local Control[0m
+[0;32mI (6501) esp_rmaker_local: Local Control Service Enabled[0m
+[0;32mI (6501) esp_rmaker_local: Starting ESP Local control with HTTP Transport and security version: 1[0m
+[0;32mI (6521) mdns_mem: mDNS task will be created from internal RAM[0m
+[0;32mI (6531) esp_https_server: Starting server[0m
+[0;32mI (6531) esp_https_server: Server listening on port 8080[0m
+[0;32mI (6531) esp_rmaker_local: esp_local_ctrl service started with name : C3hxXXzifDrh9CQjyNLhjQ[0m
+[0;33mW (6541) app_main: [DEBUG] event_handler: event_base=0x3f405da8, event_id=6[0m
+[0;32mI (6551) esp_mqtt_glue: Connecting to a1p72mufdu6064-ats.iot.us-east-1.amazonaws.com[0m
+[0;32mI (6551) app_main: Local Control Started.[0m
+[0;32mI (6561) esp_rmaker_core: Waiting for MQTT connection[0m
+[0;33mW (6551) esp_rmaker_time: Waiting for time to be synchronized. This may take time.[0m
+[0;32mI (7031) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (8691) esp_mqtt_glue: MQTT Connected[0m
+[0;33mW (8691) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=3[0m
+[0;33mW (8691) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=3[0m
+[0;32mI (8701) app_main: MQTT Connected.[0m
+[0;32mI (8701) esp_rmaker_cmd_resp: Checking for pending commands.[0m
+[0;32mI (8721) esp_rmaker_node_config: Generated Node config of length 1822[0m
+[0;32mI (8731) esp_rmaker_param: Params MQTT Init done.[0m
+[0;32mI (8741) esp_rmaker_param: Reporting params (init): {"Switch":{"Name":"Switch","LED":false,"Medir Bateria":false,"Baterias 18650":0.00000,"Status Bateria":"OK"},"Time":{"TZ":"Europe/Lisbon","TZ-POSIX":"WET0WEST,M3.5.0/1,M10.5.0"},"Schedule":{"Schedules":[]},"Scenes":{"Scenes":[]},"Local Control":{"POP":"5e845d39","Type":1}}[0m
+[0;32mI (8761) esp_rmaker_ota_using_topics: Subscribing to: node/C3hxXXzifDrh9CQjyNLhjQ/otaurl[0m
+[0;33mW (8901) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (8901) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (8901) app_main: MQTT Published. Msg id: 27112.[0m
+[0;33mW (9091) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (9091) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (9101) app_main: MQTT Published. Msg id: 9314.[0m
+[0;33mW (9101) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (9111) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (9121) app_main: MQTT Published. Msg id: 55159.[0m
+[0;32mI (11351) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (13771) esp_rmaker_ota_using_topics: Fetching OTA details, if any.[0m
+[0;33mW (14011) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (14011) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (14011) app_main: MQTT Published. Msg id: 40968.[0m
+[0;32mI (19161) app_network: Secured session established![0m
+[0;32mI (19251) esp_rmaker_node_config: Generated Node config of length 1822[0m
+[0;32mI (20361) esp_rmaker_node_config: Generated Node config of length 1822[0m
+[0;32mI (21351) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (21361) BATERIA: ADC=2118 vADC=1.707 vBat=3.926[0m
+[0;32mI (21361) BATERIA: ADC=2127 vADC=1.714 vBat=3.942[0m
+[0;32mI (21361) BATERIA: ADC=2147 vADC=1.730 vBat=3.979[0m
+[0;32mI (21361) BATERIA: ADC=2137 vADC=1.722 vBat=3.961[0m
+[0;32mI (21371) BATERIA: ADC=2033 vADC=1.638 vBat=3.768[0m
+[0;32mI (21371) BATERIA: ADC=2119 vADC=1.708 vBat=3.928[0m
+[0;32mI (21381) BATERIA: ADC=2111 vADC=1.701 vBat=3.913[0m
+[0;32mI (21381) BATERIA: ADC=2115 vADC=1.704 vBat=3.920[0m
+[0;32mI (21391) BATERIA: ADC=2114 vADC=1.704 vBat=3.918[0m
+[0;32mI (21391) BATERIA: ADC=2112 vADC=1.702 vBat=3.915[0m
+[0;32mI (21401) BATERIA: ADC=2129 vADC=1.716 vBat=3.946[0m
+[0;32mI (21401) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (21411) BATERIA: ADC=2109 vADC=1.700 vBat=3.909[0m
+[0;32mI (21421) BATERIA: ADC=2113 vADC=1.703 vBat=3.916[0m
+[0;32mI (21421) BATERIA: ADC=2087 vADC=1.682 vBat=3.868[0m
+[0;32mI (21431) BATERIA: ADC=2132 vADC=1.718 vBat=3.952[0m
+[0;32mI (25891) esp_rmaker_node_config: Generated Node config of length 1822[0m
+[0;32mI (30491) esp_rmaker_param: Received params: {"Switch":{"Medir Bateria":true}}[0m
+[0;32mI (30501) esp_rmaker_param: Found 1 params in write request for Switch[0m
+[0;32mI (30501) app_main: Received write request via : Local[0m
+[0;32mI (30501) app_main: Received value = true para rotina de medição manual[0m
+[0;32mI (31351) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (32941) wifi:[0;32mI (32941) esp_rmaker_time: SNTP Synchronised.[0m[0m
+<ba-add>idx:1 (ifx:0, 98:9d:5d:c0:fb:d1), tid:5, ssn:0, winSize:64
+[0;32mI (32941) esp_rmaker_time: The current time is: Fri Jun  6 23:01:26 2025 +0100[WEST], DST: Yes.[0m
+[0;32mI (34581) esp_rmaker_time: The current time is: Fri Jun  6 23:01:28 2025 +0100[WEST], DST: Yes.[0m
+[0;32mI (34581) app_main: Horário sincronizado com sucesso.[0m
+[0;32mI (34581) app_main: Horário local antes da decisão de sleep: Fri Jun  6 23:01:28 2025 +0100[WEST], DST: Yes[0m
+[0;33mW (34601) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=6[0m
+[0;33mW (34601) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=6[0m
+[0;33mW (34611) app_main: Unhandled RainMaker Common Event: 6[0m
+[0;32mI (34611) esp_rmaker_time: The current time is: Fri Jun  6 23:01:28 2025 +0100[WEST], DST: Yes.[0m
+[0;33mW (34621) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=7[0m
+[0;33mW (34631) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=7[0m
+[0;33mW (34641) app_main: Unhandled RainMaker Common Event: 7[0m
+[0;32mI (34641) main_task: Returned from app_main()[0m
+[0;32mI (35531) BATERIA: ADC=2105 vADC=1.696 vBat=3.902[0m
+[0;32mI (35531) BATERIA: ADC=2138 vADC=1.723 vBat=3.963[0m
+[0;32mI (35531) BATERIA: ADC=2125 vADC=1.712 vBat=3.939[0m
+[0;32mI (35531) BATERIA: ADC=2116 vADC=1.705 vBat=3.922[0m
+[0;32mI (35541) BATERIA: ADC=2112 vADC=1.702 vBat=3.915[0m
+[0;32mI (35541) BATERIA: ADC=2129 vADC=1.716 vBat=3.946[0m
+[0;32mI (35551) BATERIA: ADC=2125 vADC=1.712 vBat=3.939[0m
+[0;32mI (35551) BATERIA: ADC=2111 vADC=1.701 vBat=3.913[0m
+[0;32mI (35561) BATERIA: ADC=2099 vADC=1.692 vBat=3.890[0m
+[0;32mI (35561) BATERIA: ADC=2122 vADC=1.710 vBat=3.933[0m
+[0;32mI (35571) BATERIA: ADC=2123 vADC=1.711 vBat=3.935[0m
+[0;32mI (35581) BATERIA: ADC=2118 vADC=1.707 vBat=3.926[0m
+[0;32mI (35581) BATERIA: ADC=2113 vADC=1.703 vBat=3.916[0m
+[0;32mI (35591) BATERIA: ADC=2119 vADC=1.708 vBat=3.928[0m
+[0;32mI (35591) BATERIA: ADC=2115 vADC=1.704 vBat=3.920[0m
+[0;32mI (35601) BATERIA: ADC=2120 vADC=1.708 vBat=3.929[0m
+[0;32mI (35601) esp_rmaker_param: Notifying params: {"Switch":{"Medir Bateria":false}}[0m
+[0;32mI (35621) esp_rmaker_param: Reporting params: {"Switch":{"Medir Bateria":false,"Baterias 18650":3.93000,"Status Bateria":"OK"}}[0m
+[0;33mW (35831) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (35831) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (35831) app_main: MQTT Published. Msg id: 60919.[0m
+[0;33mW (35841) protocomm_httpd: Closing session with ID: 1908414423[0m
+[0;33mW (36021) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (36021) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (36031) app_main: MQTT Published. Msg id: 48799.[0m
+[0;32mI (36451) app_network: Secured session established![0m
+[0;32mI (36491) esp_rmaker_param: Received params: {"Switch":{"Medir Bateria":true}}[0m
+[0;32mI (36491) esp_rmaker_param: Found 1 params in write request for Switch[0m
+[0;32mI (36491) app_main: Received write request via : Local[0m
+[0;32mI (36501) app_main: Received value = true para rotina de medição manual[0m
+[0;32mI (41351) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (41521) BATERIA: ADC=2112 vADC=1.702 vBat=3.915[0m
+[0;32mI (41521) BATERIA: ADC=2139 vADC=1.724 vBat=3.965[0m
+[0;32mI (41521) BATERIA: ADC=2126 vADC=1.713 vBat=3.940[0m
+[0;32mI (41521) BATERIA: ADC=2133 vADC=1.719 vBat=3.953[0m
+[0;32mI (41531) BATERIA: ADC=2125 vADC=1.712 vBat=3.939[0m
+[0;32mI (41531) BATERIA: ADC=2110 vADC=1.700 vBat=3.911[0m
+[0;32mI (41541) BATERIA: ADC=2096 vADC=1.689 vBat=3.885[0m
+[0;32mI (41541) BATERIA: ADC=2046 vADC=1.649 vBat=3.792[0m
+[0;32mI (41551) BATERIA: ADC=2032 vADC=1.638 vBat=3.766[0m
+[0;32mI (41551) BATERIA: ADC=2027 vADC=1.633 vBat=3.757[0m
+[0;32mI (41561) BATERIA: ADC=2032 vADC=1.638 vBat=3.766[0m
+[0;32mI (41561) BATERIA: ADC=2086 vADC=1.681 vBat=3.866[0m
+[0;32mI (41571) BATERIA: ADC=2032 vADC=1.638 vBat=3.766[0m
+[0;32mI (41581) BATERIA: ADC=1934 vADC=1.559 vBat=3.585[0m
+[0;32mI (41581) BATERIA: ADC=2032 vADC=1.638 vBat=3.766[0m
+[0;32mI (41591) BATERIA: ADC=2030 vADC=1.636 vBat=3.763[0m
+[0;32mI (41591) esp_rmaker_param: Notifying params: {"Switch":{"Medir Bateria":false}}[0m
+[0;32mI (41611) esp_rmaker_param: Reporting params: {"Switch":{"Medir Bateria":false,"Baterias 18650":3.83000}}[0m
+[0;33mW (41631) protocomm_httpd: Closing session with ID: 1041022466[0m
+[0;33mW (41861) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (41861) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (41861) app_main: MQTT Published. Msg id: 54703.[0m
+[0;33mW (42011) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (42011) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (42021) app_main: MQTT Published. Msg id: 50224.[0m
+[0;32mI (42291) app_network: Secured session established![0m
+[0;32mI (42321) esp_rmaker_param: Received params: {"Switch":{"Medir Bateria":true}}[0m
+[0;32mI (42321) esp_rmaker_param: Found 1 params in write request for Switch[0m
+[0;32mI (42331) app_main: Received write request via : Local[0m
+[0;32mI (42331) app_main: Received value = true para rotina de medição manual[0m
+[0;32mI (47361) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (47361) BATERIA: ADC=2145 vADC=1.729 vBat=3.976[0m
+[0;32mI (47361) BATERIA: ADC=2112 vADC=1.702 vBat=3.915[0m
+[0;32mI (47361) BATERIA: ADC=2126 vADC=1.713 vBat=3.940[0m
+[0;32mI (47371) BATERIA: ADC=2111 vADC=1.701 vBat=3.913[0m
+[0;32mI (47371) BATERIA: ADC=2125 vADC=1.712 vBat=3.939[0m
+[0;32mI (47381) BATERIA: ADC=2018 vADC=1.626 vBat=3.740[0m
+[0;32mI (47381) BATERIA: ADC=2061 vADC=1.661 vBat=3.820[0m
+[0;32mI (47391) BATERIA: ADC=2022 vADC=1.629 vBat=3.748[0m
+[0;32mI (47391) BATERIA: ADC=2032 vADC=1.638 vBat=3.766[0m
+[0;32mI (47401) BATERIA: ADC=2045 vADC=1.648 vBat=3.790[0m
+[0;32mI (47411) BATERIA: ADC=2011 vADC=1.621 vBat=3.727[0m
+[0;32mI (47411) BATERIA: ADC=2000 vADC=1.612 vBat=3.707[0m
+[0;32mI (47421) BATERIA: ADC=2027 vADC=1.633 vBat=3.757[0m
+[0;32mI (47421) BATERIA: ADC=2026 vADC=1.633 vBat=3.755[0m
+[0;32mI (47431) BATERIA: ADC=2026 vADC=1.633 vBat=3.755[0m
+[0;32mI (47431) esp_rmaker_param: Notifying params: {"Switch":{"Medir Bateria":false}}[0m
+[0;32mI (47451) esp_rmaker_param: Reporting params: {"Switch":{"Medir Bateria":false,"Baterias 18650":3.82000}}[0m
+[0;33mW (47471) protocomm_httpd: Closing session with ID: 3090832702[0m
+[0;33mW (47591) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (47601) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (47601) app_main: MQTT Published. Msg id: 30813.[0m
+[0;33mW (47801) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (47801) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (47801) app_main: MQTT Published. Msg id: 34786.[0m
+[0;32mI (47921) app_network: Secured session established![0m
+[0;32mI (47961) esp_rmaker_param: Received params: {"Switch":{"Medir Bateria":true}}[0m
+[0;32mI (47961) esp_rmaker_param: Found 1 params in write request for Switch[0m
+[0;32mI (47971) app_main: Received write request via : Local[0m
+[0;32mI (47971) app_main: Received value = true para rotina de medição manual[0m
+[0;32mI (51351) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (53001) BATERIA: ADC=2125 vADC=1.712 vBat=3.939[0m
+[0;32mI (53001) BATERIA: ADC=2116 vADC=1.705 vBat=3.922[0m
+[0;32mI (53001) BATERIA: ADC=2120 vADC=1.708 vBat=3.929[0m
+[0;32mI (53001) BATERIA: ADC=2146 vADC=1.729 vBat=3.978[0m
+[0;32mI (53011) BATERIA: ADC=2101 vADC=1.693 vBat=3.894[0m
+[0;32mI (53011) BATERIA: ADC=2025 vADC=1.632 vBat=3.753[0m
+[0;32mI (53021) BATERIA: ADC=1916 vADC=1.544 vBat=3.551[0m
+[0;32mI (53021) BATERIA: ADC=2038 vADC=1.642 vBat=3.777[0m
+[0;32mI (53031) BATERIA: ADC=1982 vADC=1.597 vBat=3.674[0m
+[0;32mI (53031) BATERIA: ADC=2032 vADC=1.638 vBat=3.766[0m
+[0;32mI (53041) BATERIA: ADC=1984 vADC=1.599 vBat=3.677[0m
+[0;32mI (53051) BATERIA: ADC=2037 vADC=1.642 vBat=3.776[0m
+[0;32mI (53051) BATERIA: ADC=2037 vADC=1.642 vBat=3.776[0m
+[0;32mI (53061) BATERIA: ADC=2032 vADC=1.638 vBat=3.766[0m
+[0;32mI (53061) BATERIA: ADC=2039 vADC=1.643 vBat=3.779[0m
+[0;32mI (53071) BATERIA: ADC=2034 vADC=1.639 vBat=3.770[0m
+[0;32mI (53071) esp_rmaker_param: Notifying params: {"Switch":{"Medir Bateria":false}}[0m
+[0;32mI (53091) esp_rmaker_param: Reporting params: {"Switch":{"Medir Bateria":false,"Baterias 18650":3.80000}}[0m
+[0;33mW (53111) protocomm_httpd: Closing session with ID: 279334534[0m
+[0;33mW (53331) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (53331) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (53331) app_main: MQTT Published. Msg id: 5507.[0m
+[0;33mW (53501) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (53501) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (53501) app_main: MQTT Published. Msg id: 30050.[0m
+[0;32mI (53601) app_network: Secured session established![0m
+[0;32mI (53631) esp_rmaker_param: Received params: {"Switch":{"Medir Bateria":true}}[0m
+[0;32mI (53631) esp_rmaker_param: Found 1 params in write request for Switch[0m
+[0;32mI (53641) app_main: Received write request via : Local[0m
+[0;32mI (53641) app_main: Received value = true para rotina de medição manual[0m
+[0;32mI (58671) BATERIA: ADC=2122 vADC=1.710 vBat=3.933[0m
+[0;32mI (58671) BATERIA: ADC=2123 vADC=1.711 vBat=3.935[0m
+[0;32mI (58671) BATERIA: ADC=2119 vADC=1.708 vBat=3.928[0m
+[0;32mI (58671) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (58681) BATERIA: ADC=2118 vADC=1.707 vBat=3.926[0m
+[0;32mI (58681) BATERIA: ADC=2111 vADC=1.701 vBat=3.913[0m
+[0;32mI (58691) BATERIA: ADC=2121 vADC=1.709 vBat=3.931[0m
+[0;32mI (58691) BATERIA: ADC=2113 vADC=1.703 vBat=3.916[0m
+[0;32mI (58701) BATERIA: ADC=2115 vADC=1.704 vBat=3.920[0m
+[0;32mI (58701) BATERIA: ADC=2107 vADC=1.698 vBat=3.905[0m
+[0;32mI (58711) BATERIA: ADC=2149 vADC=1.732 vBat=3.983[0m
+[0;32mI (58721) BATERIA: ADC=2115 vADC=1.704 vBat=3.920[0m
+[0;32mI (58721) BATERIA: ADC=2117 vADC=1.706 vBat=3.924[0m
+[0;32mI (58731) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (58731) BATERIA: ADC=2117 vADC=1.706 vBat=3.924[0m
+[0;32mI (58741) BATERIA: ADC=2115 vADC=1.704 vBat=3.920[0m
+[0;32mI (58741) esp_rmaker_param: Notifying params: {"Switch":{"Medir Bateria":false}}[0m
+[0;32mI (58761) esp_rmaker_param: Reporting params: {"Switch":{"Medir Bateria":false,"Baterias 18650":3.93000}}[0m
+[0;33mW (58961) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (58971) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (58971) app_main: MQTT Published. Msg id: 62873.[0m
+[0;33mW (58981) protocomm_httpd: Closing session with ID: 1089882702[0m
+[0;33mW (59111) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (59121) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (59121) app_main: MQTT Published. Msg id: 21201.[0m
+[0;32mI (59401) app_network: Secured session established![0m
+[0;32mI (59431) esp_rmaker_param: Received params: {"Switch":{"Medir Bateria":true}}[0m
+[0;32mI (59431) esp_rmaker_param: Found 1 params in write request for Switch[0m
+[0;32mI (59431) app_main: Received write request via : Local[0m
+[0;32mI (59441) app_main: Received value = true para rotina de medição manual[0m
+[0;32mI (61351) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (64471) BATERIA: ADC=2115 vADC=1.704 vBat=3.920[0m
+[0;32mI (64471) BATERIA: ADC=2117 vADC=1.706 vBat=3.924[0m
+[0;32mI (64471) BATERIA: ADC=2114 vADC=1.704 vBat=3.918[0m
+[0;32mI (64471) BATERIA: ADC=2114 vADC=1.704 vBat=3.918[0m
+[0;32mI (64481) BATERIA: ADC=2081 vADC=1.677 vBat=3.857[0m
+[0;32mI (64481) BATERIA: ADC=2039 vADC=1.643 vBat=3.779[0m
+[0;32mI (64491) BATERIA: ADC=2039 vADC=1.643 vBat=3.779[0m
+[0;32mI (64491) BATERIA: ADC=1997 vADC=1.609 vBat=3.701[0m
+[0;32mI (64501) BATERIA: ADC=2027 vADC=1.633 vBat=3.757[0m
+[0;32mI (64501) BATERIA: ADC=2032 vADC=1.638 vBat=3.766[0m
+[0;32mI (64511) BATERIA: ADC=2030 vADC=1.636 vBat=3.763[0m
+[0;32mI (64521) BATERIA: ADC=2032 vADC=1.638 vBat=3.766[0m
+[0;32mI (64521) BATERIA: ADC=2032 vADC=1.638 vBat=3.766[0m
+[0;32mI (64531) BATERIA: ADC=2018 vADC=1.626 vBat=3.740[0m
+[0;32mI (64531) BATERIA: ADC=2029 vADC=1.635 vBat=3.761[0m
+[0;32mI (64541) BATERIA: ADC=2035 vADC=1.640 vBat=3.772[0m
+[0;32mI (64541) esp_rmaker_param: Notifying params: {"Switch":{"Medir Bateria":false}}[0m
+[0;32mI (64561) esp_rmaker_param: Reporting params: {"Switch":{"Medir Bateria":false,"Baterias 18650":3.81000}}[0m
+[0;33mW (64611) protocomm_httpd: Closing session with ID: 3066428821[0m
+[0;33mW (64801) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (64801) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (64801) app_main: MQTT Published. Msg id: 17062.[0m
+[0;33mW (64991) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (64991) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (65001) app_main: MQTT Published. Msg id: 17401.[0m
+[0;32mI (65031) app_network: Secured session established![0m
+[0;32mI (65061) esp_rmaker_param: Received params: {"Switch":{"Medir Bateria":true}}[0m
+[0;32mI (65061) esp_rmaker_param: Found 1 params in write request for Switch[0m
+[0;32mI (65071) app_main: Received write request via : Local[0m
+[0;32mI (65071) app_main: Received value = true para rotina de medição manual[0m
+[0;32mI (70101) BATERIA: ADC=2105 vADC=1.696 vBat=3.902[0m
+[0;32mI (70101) BATERIA: ADC=2115 vADC=1.704 vBat=3.920[0m
+[0;32mI (70101) BATERIA: ADC=2095 vADC=1.688 vBat=3.883[0m
+[0;32mI (70101) BATERIA: ADC=2122 vADC=1.710 vBat=3.933[0m
+[0;32mI (70111) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (70111) BATERIA: ADC=2035 vADC=1.640 vBat=3.772[0m
+[0;32mI (70121) BATERIA: ADC=2021 vADC=1.629 vBat=3.746[0m
+[0;32mI (70121) BATERIA: ADC=1947 vADC=1.569 vBat=3.609[0m
+[0;32mI (70131) BATERIA: ADC=2043 vADC=1.646 vBat=3.787[0m
+[0;32mI (70131) BATERIA: ADC=2118 vADC=1.707 vBat=3.926[0m
+[0;32mI (70141) BATERIA: ADC=2026 vADC=1.633 vBat=3.755[0m
+[0;32mI (70151) BATERIA: ADC=1991 vADC=1.604 vBat=3.690[0m
+[0;32mI (70151) BATERIA: ADC=2032 vADC=1.638 vBat=3.766[0m
+[0;32mI (70161) BATERIA: ADC=2013 vADC=1.622 vBat=3.731[0m
+[0;32mI (70161) BATERIA: ADC=2027 vADC=1.633 vBat=3.757[0m
+[0;32mI (70171) BATERIA: ADC=2032 vADC=1.638 vBat=3.766[0m
+[0;32mI (70171) esp_rmaker_param: Notifying params: {"Switch":{"Medir Bateria":false}}[0m
+[0;32mI (70191) esp_rmaker_param: Reporting params: {"Switch":{"Medir Bateria":false,"Baterias 18650":3.81000}}[0m
+[0;33mW (70241) protocomm_httpd: Closing session with ID: 1786054157[0m
+[0;33mW (70381) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (70381) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (70381) app_main: MQTT Published. Msg id: 6225.[0m
+[0;33mW (70631) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (70631) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (70631) app_main: MQTT Published. Msg id: 61291.[0m
+[0;32mI (70671) app_network: Secured session established![0m
+[0;32mI (70691) esp_rmaker_param: Received params: {"Switch":{"Medir Bateria":true}}[0m
+[0;32mI (70691) esp_rmaker_param: Found 1 params in write request for Switch[0m
+[0;32mI (70701) app_main: Received write request via : Local[0m
+[0;32mI (70701) app_main: Received value = true para rotina de medição manual[0m
+[0;32mI (71351) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (75731) BATERIA: ADC=2106 vADC=1.697 vBat=3.903[0m
+[0;32mI (75731) BATERIA: ADC=2115 vADC=1.704 vBat=3.920[0m
+[0;32mI (75731) BATERIA: ADC=2123 vADC=1.711 vBat=3.935[0m
+[0;32mI (75731) BATERIA: ADC=2151 vADC=1.733 vBat=3.987[0m
+[0;32mI (75741) BATERIA: ADC=2127 vADC=1.714 vBat=3.942[0m
+[0;32mI (75741) BATERIA: ADC=2039 vADC=1.643 vBat=3.779[0m
+[0;32mI (75751) BATERIA: ADC=2031 vADC=1.637 vBat=3.764[0m
+[0;32mI (75761) BATERIA: ADC=1950 vADC=1.571 vBat=3.614[0m
+[0;32mI (75761) BATERIA: ADC=2046 vADC=1.649 vBat=3.792[0m
+[0;32mI (75761) BATERIA: ADC=2009 vADC=1.619 vBat=3.724[0m
+[0;32mI (75771) BATERIA: ADC=2016 vADC=1.625 vBat=3.737[0m
+[0;32mI (75781) BATERIA: ADC=2058 vADC=1.658 vBat=3.814[0m
+[0;32mI (75781) BATERIA: ADC=2035 vADC=1.640 vBat=3.772[0m
+[0;32mI (75791) BATERIA: ADC=2037 vADC=1.642 vBat=3.776[0m
+[0;32mI (75791) BATERIA: ADC=2027 vADC=1.633 vBat=3.757[0m
+[0;32mI (75801) BATERIA: ADC=2046 vADC=1.649 vBat=3.792[0m
+[0;32mI (75801) esp_rmaker_param: Notifying params: {"Switch":{"Medir Bateria":false}}[0m
+[0;32mI (75821) esp_rmaker_param: Reporting params: {"Switch":{"Medir Bateria":false,"Baterias 18650":3.81000}}[0m
+[0;33mW (75841) protocomm_httpd: Closing session with ID: 2713274995[0m
+[0;33mW (75961) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (75961) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (75961) app_main: MQTT Published. Msg id: 14764.[0m
+[0;33mW (76161) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (76171) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (76171) app_main: MQTT Published. Msg id: 12924.[0m
+[0;32mI (76301) app_network: Secured session established![0m
+[0;32mI (76331) esp_rmaker_param: Received params: {"Switch":{"Medir Bateria":true}}[0m
+[0;32mI (76331) esp_rmaker_param: Found 1 params in write request for Switch[0m
+[0;32mI (76341) app_main: Received write request via : Local[0m
+[0;32mI (76341) app_main: Received value = true para rotina de medição manual[0m
+[0;32mI (81351) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (81371) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (81371) BATERIA: ADC=2137 vADC=1.722 vBat=3.961[0m
+[0;32mI (81371) BATERIA: ADC=2130 vADC=1.716 vBat=3.948[0m
+[0;32mI (81371) BATERIA: ADC=2125 vADC=1.712 vBat=3.939[0m
+[0;32mI (81381) BATERIA: ADC=2034 vADC=1.639 vBat=3.770[0m
+[0;32mI (81381) BATERIA: ADC=2010 vADC=1.620 vBat=3.725[0m
+[0;32mI (81391) BATERIA: ADC=2033 vADC=1.638 vBat=3.768[0m
+[0;32mI (81391) BATERIA: ADC=2046 vADC=1.649 vBat=3.792[0m
+[0;32mI (81401) BATERIA: ADC=2061 vADC=1.661 vBat=3.820[0m
+[0;32mI (81401) BATERIA: ADC=2047 vADC=1.650 vBat=3.794[0m
+[0;32mI (81411) BATERIA: ADC=2035 vADC=1.640 vBat=3.772[0m
+[0;32mI (81411) BATERIA: ADC=2034 vADC=1.639 vBat=3.770[0m
+[0;32mI (81421) BATERIA: ADC=2043 vADC=1.646 vBat=3.787[0m
+[0;32mI (81431) BATERIA: ADC=2045 vADC=1.648 vBat=3.790[0m
+[0;32mI (81431) BATERIA: ADC=2023 vADC=1.630 vBat=3.750[0m
+[0;32mI (81441) BATERIA: ADC=2032 vADC=1.638 vBat=3.766[0m
+[0;32mI (81441) esp_rmaker_param: Notifying params: {"Switch":{"Medir Bateria":false}}[0m
+[0;32mI (81461) esp_rmaker_param: Reporting params: {"Switch":{"Medir Bateria":false,"Baterias 18650":3.82000}}[0m
+[0;33mW (81481) protocomm_httpd: Closing session with ID: 2579343603[0m
+[0;33mW (81601) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (81601) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (81601) app_main: MQTT Published. Msg id: 40204.[0m
+[0;33mW (81801) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (81801) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (81801) app_main: MQTT Published. Msg id: 43118.[0m
+[0;32mI (81931) app_network: Secured session established![0m
+[0;32mI (81971) esp_rmaker_param: Received params: {"Switch":{"Medir Bateria":true}}[0m
+[0;32mI (81971) esp_rmaker_param: Found 1 params in write request for Switch[0m
+[0;32mI (81981) app_main: Received write request via : Local[0m
+[0;32mI (81981) app_main: Received value = true para rotina de medição manual[0m
+[0;32mI (87011) BATERIA: ADC=2122 vADC=1.710 vBat=3.933[0m
+[0;32mI (87011) BATERIA: ADC=2042 vADC=1.646 vBat=3.785[0m
+[0;32mI (87011) BATERIA: ADC=2059 vADC=1.659 vBat=3.816[0m
+[0;32mI (87011) BATERIA: ADC=2033 vADC=1.638 vBat=3.768[0m
+[0;32mI (87021) BATERIA: ADC=2042 vADC=1.646 vBat=3.785[0m
+[0;32mI (87021) BATERIA: ADC=2042 vADC=1.646 vBat=3.785[0m
+[0;32mI (87031) BATERIA: ADC=2041 vADC=1.645 vBat=3.783[0m
+[0;32mI (87031) BATERIA: ADC=2094 vADC=1.687 vBat=3.881[0m
+[0;32mI (87041) BATERIA: ADC=2038 vADC=1.642 vBat=3.777[0m
+[0;32mI (87051) BATERIA: ADC=2059 vADC=1.659 vBat=3.816[0m
+[0;32mI (87051) BATERIA: ADC=2046 vADC=1.649 vBat=3.792[0m
+[0;32mI (87061) BATERIA: ADC=2047 vADC=1.650 vBat=3.794[0m
+[0;32mI (87061) BATERIA: ADC=2043 vADC=1.646 vBat=3.787[0m
+[0;32mI (87071) BATERIA: ADC=2032 vADC=1.638 vBat=3.766[0m
+[0;32mI (87071) BATERIA: ADC=2043 vADC=1.646 vBat=3.787[0m
+[0;32mI (87081) BATERIA: ADC=2032 vADC=1.638 vBat=3.766[0m
+[0;32mI (87081) esp_rmaker_param: Notifying params: {"Switch":{"Medir Bateria":false}}[0m
+[0;32mI (87101) esp_rmaker_param: Reporting params: {"Switch":{"Medir Bateria":false,"Baterias 18650":3.80000}}[0m
+[0;33mW (87131) protocomm_httpd: Closing session with ID: 69495568[0m
+[0;33mW (87331) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (87331) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (87331) app_main: MQTT Published. Msg id: 33166.[0m
+[0;33mW (87511) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (87511) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (87521) app_main: MQTT Published. Msg id: 22584.[0m
+[0;32mI (87621) app_network: Secured session established![0m
+[0;32mI (87691) esp_rmaker_param: Received params: {"Switch":{"Medir Bateria":true}}[0m
+[0;32mI (87701) esp_rmaker_param: Found 1 params in write request for Switch[0m
+[0;32mI (87701) app_main: Received write request via : Local[0m
+[0;32mI (87701) app_main: Received value = true para rotina de medição manual[0m
+[0;32mI (91351) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (92731) BATERIA: ADC=2129 vADC=1.716 vBat=3.946[0m
+[0;32mI (92731) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (92731) BATERIA: ADC=2127 vADC=1.714 vBat=3.942[0m
+[0;32mI (92731) BATERIA: ADC=2115 vADC=1.704 vBat=3.920[0m
+[0;32mI (92741) BATERIA: ADC=2069 vADC=1.667 vBat=3.835[0m
+[0;32mI (92741) BATERIA: ADC=2062 vADC=1.662 vBat=3.822[0m
+[0;32mI (92751) BATERIA: ADC=2033 vADC=1.638 vBat=3.768[0m
+[0;32mI (92751) BATERIA: ADC=2033 vADC=1.638 vBat=3.768[0m
+[0;32mI (92761) BATERIA: ADC=2044 vADC=1.647 vBat=3.789[0m
+[0;32mI (92761) BATERIA: ADC=2047 vADC=1.650 vBat=3.794[0m
+[0;32mI (92771) BATERIA: ADC=2002 vADC=1.613 vBat=3.711[0m
+[0;32mI (92781) BATERIA: ADC=2089 vADC=1.683 vBat=3.872[0m
+[0;32mI (92781) BATERIA: ADC=2038 vADC=1.642 vBat=3.777[0m
+[0;32mI (92791) BATERIA: ADC=2031 vADC=1.637 vBat=3.764[0m
+[0;32mI (92791) BATERIA: ADC=2042 vADC=1.646 vBat=3.785[0m
+[0;32mI (92801) BATERIA: ADC=2059 vADC=1.659 vBat=3.816[0m
+[0;32mI (92801) esp_rmaker_param: Notifying params: {"Switch":{"Medir Bateria":false}}[0m
+[0;32mI (92821) esp_rmaker_param: Reporting params: {"Switch":{"Medir Bateria":false,"Baterias 18650":3.83000}}[0m
+[0;33mW (92841) protocomm_httpd: Closing session with ID: 1046187071[0m
+[0;33mW (93061) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (93061) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (93071) app_main: MQTT Published. Msg id: 19158.[0m
+[0;33mW (93231) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (93231) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (93231) app_main: MQTT Published. Msg id: 25895.[0m
+[0;32mI (93301) app_network: Secured session established![0m
+[0;32mI (93331) esp_rmaker_param: Received params: {"Switch":{"Medir Bateria":true}}[0m
+[0;32mI (93331) esp_rmaker_param: Found 1 params in write request for Switch[0m
+[0;32mI (93341) app_main: Received write request via : Local[0m
+[0;32mI (93341) app_main: Received value = true para rotina de medição manual[0m
+[0;32mI (98371) BATERIA: ADC=2126 vADC=1.713 vBat=3.940[0m
+[0;32mI (98371) BATERIA: ADC=2269 vADC=1.828 vBat=4.206[0m
+[0;32mI (98371) BATERIA: ADC=2134 vADC=1.720 vBat=3.955[0m
+[0;32mI (98371) BATERIA: ADC=2130 vADC=1.716 vBat=3.948[0m
+[0;32mI (98381) BATERIA: ADC=2034 vADC=1.639 vBat=3.770[0m
+[0;32mI (98381) BATERIA: ADC=1955 vADC=1.575 vBat=3.624[0m
+[0;32mI (98391) BATERIA: ADC=1953 vADC=1.574 vBat=3.620[0m
+[0;32mI (98391) BATERIA: ADC=2058 vADC=1.658 vBat=3.814[0m
+[0;32mI (98401) BATERIA: ADC=2088 vADC=1.683 vBat=3.870[0m
+[0;32mI (98401) BATERIA: ADC=2037 vADC=1.642 vBat=3.776[0m
+[0;32mI (98411) BATERIA: ADC=2054 vADC=1.655 vBat=3.807[0m
+[0;32mI (98421) BATERIA: ADC=2038 vADC=1.642 vBat=3.777[0m
+[0;32mI (98421) BATERIA: ADC=2036 vADC=1.641 vBat=3.774[0m
+[0;32mI (98431) BATERIA: ADC=2053 vADC=1.654 vBat=3.805[0m
+[0;32mI (98431) BATERIA: ADC=2032 vADC=1.638 vBat=3.766[0m
+[0;32mI (98441) BATERIA: ADC=2017 vADC=1.625 vBat=3.738[0m
+[0;32mI (98441) esp_rmaker_param: Notifying params: {"Switch":{"Medir Bateria":false}}[0m
+[0;32mI (98461) esp_rmaker_param: Reporting params: {"Switch":{"Medir Bateria":false,"Baterias 18650":3.82000}}[0m
+[0;33mW (98481) protocomm_httpd: Closing session with ID: 546095897[0m
+[0;33mW (98601) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (98601) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (98601) app_main: MQTT Published. Msg id: 371.[0m
+[0;33mW (98801) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (98801) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (98801) app_main: MQTT Published. Msg id: 39283.[0m
+[0;32mI (98931) app_network: Secured session established![0m
+[0;32mI (98961) esp_rmaker_param: Received params: {"Switch":{"Medir Bateria":true}}[0m
+[0;32mI (98961) esp_rmaker_param: Found 1 params in write request for Switch[0m
+[0;32mI (98961) app_main: Received write request via : Local[0m
+[0;32mI (98971) app_main: Received value = true para rotina de medição manual[0m
+[0;32mI (101351) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (104001) BATERIA: ADC=2132 vADC=1.718 vBat=3.952[0m
+[0;32mI (104001) BATERIA: ADC=2138 vADC=1.723 vBat=3.963[0m
+[0;32mI (104001) BATERIA: ADC=2139 vADC=1.724 vBat=3.965[0m
+[0;32mI (104001) BATERIA: ADC=2125 vADC=1.712 vBat=3.939[0m
+[0;32mI (104011) BATERIA: ADC=2023 vADC=1.630 vBat=3.750[0m
+[0;32mI (104011) BATERIA: ADC=2142 vADC=1.726 vBat=3.970[0m
+[0;32mI (104021) BATERIA: ADC=2126 vADC=1.713 vBat=3.940[0m
+[0;32mI (104021) BATERIA: ADC=2110 vADC=1.700 vBat=3.911[0m
+[0;32mI (104031) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (104041) BATERIA: ADC=2135 vADC=1.721 vBat=3.957[0m
+[0;32mI (104041) BATERIA: ADC=2134 vADC=1.720 vBat=3.955[0m
+[0;32mI (104051) BATERIA: ADC=2129 vADC=1.716 vBat=3.946[0m
+[0;32mI (104051) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (104061) BATERIA: ADC=2105 vADC=1.696 vBat=3.902[0m
+[0;32mI (104061) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (104071) BATERIA: ADC=2122 vADC=1.710 vBat=3.933[0m
+[0;32mI (104071) esp_rmaker_param: Notifying params: {"Switch":{"Medir Bateria":false}}[0m
+[0;32mI (104091) esp_rmaker_param: Reporting params: {"Switch":{"Medir Bateria":false,"Baterias 18650":3.93000}}[0m
+[0;33mW (104121) protocomm_httpd: Closing session with ID: 3956419399[0m
+[0;33mW (104331) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (104331) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (104331) app_main: MQTT Published. Msg id: 29872.[0m
+[0;33mW (104511) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (104511) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (104521) app_main: MQTT Published. Msg id: 10747.[0m
+[0;32mI (104551) app_network: Secured session established![0m
+[0;32mI (104581) esp_rmaker_param: Received params: {"Switch":{"Medir Bateria":true}}[0m
+[0;32mI (104591) esp_rmaker_param: Found 1 params in write request for Switch[0m
+[0;32mI (104591) app_main: Received write request via : Local[0m
+[0;32mI (104601) app_main: Received value = true para rotina de medição manual[0m
+[0;32mI (109621) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (109621) BATERIA: ADC=2130 vADC=1.716 vBat=3.948[0m
+[0;32mI (109621) BATERIA: ADC=2125 vADC=1.712 vBat=3.939[0m
+[0;32mI (109621) BATERIA: ADC=2192 vADC=1.766 vBat=4.063[0m
+[0;32mI (109631) BATERIA: ADC=2132 vADC=1.718 vBat=3.952[0m
+[0;32mI (109631) BATERIA: ADC=2079 vADC=1.675 vBat=3.853[0m
+[0;32mI (109641) BATERIA: ADC=1931 vADC=1.556 vBat=3.579[0m
+[0;32mI (109651) BATERIA: ADC=2059 vADC=1.659 vBat=3.816[0m
+[0;32mI (109651) BATERIA: ADC=2032 vADC=1.638 vBat=3.766[0m
+[0;32mI (109661) BATERIA: ADC=2037 vADC=1.642 vBat=3.776[0m
+[0;32mI (109661) BATERIA: ADC=2031 vADC=1.637 vBat=3.764[0m
+[0;32mI (109671) BATERIA: ADC=2043 vADC=1.646 vBat=3.787[0m
+[0;32mI (109671) BATERIA: ADC=2031 vADC=1.637 vBat=3.764[0m
+[0;32mI (109681) BATERIA: ADC=2039 vADC=1.643 vBat=3.779[0m
+[0;32mI (109681) BATERIA: ADC=1988 vADC=1.602 vBat=3.685[0m
+[0;32mI (109691) BATERIA: ADC=2037 vADC=1.642 vBat=3.776[0m
+[0;32mI (109691) esp_rmaker_param: Notifying params: {"Switch":{"Medir Bateria":false}}[0m
+[0;32mI (109711) esp_rmaker_param: Reporting params: {"Switch":{"Medir Bateria":false,"Baterias 18650":3.82000}}[0m
+[0;33mW (109731) protocomm_httpd: Closing session with ID: 448080078[0m
+[0;33mW (109861) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (109861) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (109861) app_main: MQTT Published. Msg id: 34907.[0m
+[0;33mW (110061) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (110061) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (110061) app_main: MQTT Published. Msg id: 61804.[0m
+[0;32mI (110191) app_network: Secured session established![0m
+[0;32mI (110211) esp_rmaker_param: Received params: {"Switch":{"Medir Bateria":true}}[0m
+[0;32mI (110211) esp_rmaker_param: Found 1 params in write request for Switch[0m
+[0;32mI (110221) app_main: Received write request via : Local[0m
+[0;32mI (110221) app_main: Received value = true para rotina de medição manual[0m
+[0;32mI (111351) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (115251) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (115251) BATERIA: ADC=2093 vADC=1.687 vBat=3.879[0m
+[0;32mI (115251) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (115251) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (115261) BATERIA: ADC=2114 vADC=1.704 vBat=3.918[0m
+[0;32mI (115261) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (115271) BATERIA: ADC=2112 vADC=1.702 vBat=3.915[0m
+[0;32mI (115271) BATERIA: ADC=2047 vADC=1.650 vBat=3.794[0m
+[0;32mI (115281) BATERIA: ADC=2147 vADC=1.730 vBat=3.979[0m
+[0;32mI (115291) BATERIA: ADC=2083 vADC=1.679 vBat=3.861[0m
+[0;32mI (115291) BATERIA: ADC=2118 vADC=1.707 vBat=3.926[0m
+[0;32mI (115301) BATERIA: ADC=2131 vADC=1.717 vBat=3.950[0m
+[0;32mI (115301) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (115311) BATERIA: ADC=2086 vADC=1.681 vBat=3.866[0m
+[0;32mI (115311) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (115321) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (115321) esp_rmaker_param: Notifying params: {"Switch":{"Medir Bateria":false}}[0m
+[0;32mI (115341) esp_rmaker_param: Reporting params: {"Switch":{"Medir Bateria":false,"Baterias 18650":3.92000}}[0m
+[0;33mW (115371) protocomm_httpd: Closing session with ID: 2180063330[0m
+[0;33mW (115591) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (115591) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (115591) app_main: MQTT Published. Msg id: 46025.[0m
+[0;33mW (115761) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (115761) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (115771) app_main: MQTT Published. Msg id: 20619.[0m
+[0;32mI (115781) app_network: Secured session established![0m
+[0;32mI (115811) esp_rmaker_param: Received params: {"Switch":{"Medir Bateria":true}}[0m
+[0;32mI (115821) esp_rmaker_param: Found 1 params in write request for Switch[0m
+[0;32mI (115821) app_main: Received write request via : Local[0m
+[0;32mI (115821) app_main: Received value = true para rotina de medição manual[0m
+[0;32mI (120851) BATERIA: ADC=2131 vADC=1.717 vBat=3.950[0m
+[0;32mI (120851) BATERIA: ADC=2122 vADC=1.710 vBat=3.933[0m
+[0;32mI (120851) BATERIA: ADC=2122 vADC=1.710 vBat=3.933[0m
+[0;32mI (120851) BATERIA: ADC=2118 vADC=1.707 vBat=3.926[0m
+[0;32mI (120861) BATERIA: ADC=2115 vADC=1.704 vBat=3.920[0m
+[0;32mI (120861) BATERIA: ADC=2135 vADC=1.721 vBat=3.957[0m
+[0;32mI (120871) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (120871) BATERIA: ADC=2127 vADC=1.714 vBat=3.942[0m
+[0;32mI (120881) BATERIA: ADC=2126 vADC=1.713 vBat=3.940[0m
+[0;32mI (120891) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (120891) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (120901) BATERIA: ADC=2133 vADC=1.719 vBat=3.953[0m
+[0;32mI (120901) BATERIA: ADC=2109 vADC=1.700 vBat=3.909[0m
+[0;32mI (120911) BATERIA: ADC=2029 vADC=1.635 vBat=3.761[0m
+[0;32mI (120911) BATERIA: ADC=2045 vADC=1.648 vBat=3.790[0m
+[0;32mI (120921) BATERIA: ADC=2040 vADC=1.644 vBat=3.781[0m
+[0;32mI (120921) esp_rmaker_param: Notifying params: {"Switch":{"Medir Bateria":false}}[0m
+[0;32mI (120941) esp_rmaker_param: Reporting params: {"Switch":{"Medir Bateria":false,"Baterias 18650":3.91000}}[0m
+[0;33mW (120961) protocomm_httpd: Closing session with ID: 1103373704[0m
+[0;33mW (121091) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (121091) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (121091) app_main: MQTT Published. Msg id: 44889.[0m
+[0;33mW (121321) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (121331) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (121331) app_main: MQTT Published. Msg id: 23295.[0m
+[0;32mI (121351) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (121521) app_network: Secured session established![0m
+[0;32mI (121551) esp_rmaker_param: Received params: {"Switch":{"Medir Bateria":true}}[0m
+[0;32mI (121551) esp_rmaker_param: Found 1 params in write request for Switch[0m
+[0;32mI (121551) app_main: Received write request via : Local[0m
+[0;32mI (121561) app_main: Received value = true para rotina de medição manual[0m
+[0;32mI (126591) BATERIA: ADC=2140 vADC=1.725 vBat=3.966[0m
+[0;32mI (126591) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (126591) BATERIA: ADC=2123 vADC=1.711 vBat=3.935[0m
+[0;32mI (126591) BATERIA: ADC=2136 vADC=1.721 vBat=3.959[0m
+[0;32mI (126601) BATERIA: ADC=2123 vADC=1.711 vBat=3.935[0m
+[0;32mI (126601) BATERIA: ADC=2118 vADC=1.707 vBat=3.926[0m
+[0;32mI (126611) BATERIA: ADC=2135 vADC=1.721 vBat=3.957[0m
+[0;32mI (126611) BATERIA: ADC=2115 vADC=1.704 vBat=3.920[0m
+[0;32mI (126621) BATERIA: ADC=2121 vADC=1.709 vBat=3.931[0m
+[0;32mI (126631) BATERIA: ADC=2139 vADC=1.724 vBat=3.965[0m
+[0;32mI (126631) BATERIA: ADC=2126 vADC=1.713 vBat=3.940[0m
+[0;32mI (126641) BATERIA: ADC=2126 vADC=1.713 vBat=3.940[0m
+[0;32mI (126641) BATERIA: ADC=2021 vADC=1.629 vBat=3.746[0m
+[0;32mI (126651) BATERIA: ADC=2031 vADC=1.637 vBat=3.764[0m
+[0;32mI (126651) BATERIA: ADC=2037 vADC=1.642 vBat=3.776[0m
+[0;32mI (126661) BATERIA: ADC=2041 vADC=1.645 vBat=3.783[0m
+[0;32mI (126661) esp_rmaker_param: Notifying params: {"Switch":{"Medir Bateria":false}}[0m
+[0;32mI (126681) esp_rmaker_param: Reporting params: {"Switch":{"Medir Bateria":false,"Baterias 18650":3.90000}}[0m
+[0;33mW (126701) protocomm_httpd: Closing session with ID: 2944514655[0m
+[0;33mW (126841) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (126841) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (126841) app_main: MQTT Published. Msg id: 2577.[0m
+[0;33mW (127061) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (127061) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (127061) app_main: MQTT Published. Msg id: 62410.[0m
+[0;32mI (127281) app_network: Secured session established![0m
+[0;32mI (127311) esp_rmaker_param: Received params: {"Switch":{"Medir Bateria":true}}[0m
+[0;32mI (127321) esp_rmaker_param: Found 1 params in write request for Switch[0m
+[0;32mI (127321) app_main: Received write request via : Local[0m
+[0;32mI (127321) app_main: Received value = true para rotina de medição manual[0m
+[0;32mI (131351) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (132351) BATERIA: ADC=2121 vADC=1.709 vBat=3.931[0m
+[0;32mI (132351) BATERIA: ADC=2138 vADC=1.723 vBat=3.963[0m
+[0;32mI (132351) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (132351) BATERIA: ADC=2133 vADC=1.719 vBat=3.953[0m
+[0;32mI (132361) BATERIA: ADC=2132 vADC=1.718 vBat=3.952[0m
+[0;32mI (132361) BATERIA: ADC=2122 vADC=1.710 vBat=3.933[0m
+[0;32mI (132371) BATERIA: ADC=2096 vADC=1.689 vBat=3.885[0m
+[0;32mI (132371) BATERIA: ADC=2057 vADC=1.658 vBat=3.813[0m
+[0;32mI (132381) BATERIA: ADC=2007 vADC=1.617 vBat=3.720[0m
+[0;32mI (132391) BATERIA: ADC=2056 vADC=1.657 vBat=3.811[0m
+[0;32mI (132391) BATERIA: ADC=2033 vADC=1.638 vBat=3.768[0m
+[0;32mI (132401) BATERIA: ADC=2035 vADC=1.640 vBat=3.772[0m
+[0;32mI (132401) BATERIA: ADC=2039 vADC=1.643 vBat=3.779[0m
+[0;32mI (132411) BATERIA: ADC=2045 vADC=1.648 vBat=3.790[0m
+[0;32mI (132411) BATERIA: ADC=2055 vADC=1.656 vBat=3.809[0m
+[0;32mI (132421) BATERIA: ADC=2018 vADC=1.626 vBat=3.740[0m
+[0;32mI (132421) esp_rmaker_param: Notifying params: {"Switch":{"Medir Bateria":false}}[0m
+[0;32mI (132441) esp_rmaker_param: Reporting params: {"Switch":{"Medir Bateria":false,"Baterias 18650":3.85000}}[0m
+[0;33mW (132461) protocomm_httpd: Closing session with ID: 1148935486[0m
+[0;33mW (132591) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (132591) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (132591) app_main: MQTT Published. Msg id: 38297.[0m
+[0;33mW (132791) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (132801) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (132801) app_main: MQTT Published. Msg id: 7938.[0m
+[0;32mI (132931) app_network: Secured session established![0m
+[0;32mI (132961) esp_rmaker_param: Received params: {"Switch":{"Medir Bateria":true}}[0m
+[0;32mI (132961) esp_rmaker_param: Found 1 params in write request for Switch[0m
+[0;32mI (132961) app_main: Received write request via : Local[0m
+[0;32mI (132971) app_main: Received value = true para rotina de medição manual[0m
+[0;32mI (138001) BATERIA: ADC=2131 vADC=1.717 vBat=3.950[0m
+[0;32mI (138001) BATERIA: ADC=2055 vADC=1.656 vBat=3.809[0m
+[0;32mI (138001) BATERIA: ADC=2131 vADC=1.717 vBat=3.950[0m
+[0;32mI (138001) BATERIA: ADC=2137 vADC=1.722 vBat=3.961[0m
+[0;32mI (138011) BATERIA: ADC=2054 vADC=1.655 vBat=3.807[0m
+[0;32mI (138021) BATERIA: ADC=2027 vADC=1.633 vBat=3.757[0m
+[0;32mI (138021) BATERIA: ADC=2043 vADC=1.646 vBat=3.787[0m
+[0;32mI (138021) BATERIA: ADC=2029 vADC=1.635 vBat=3.761[0m
+[0;32mI (138031) BATERIA: ADC=2031 vADC=1.637 vBat=3.764[0m
+[0;32mI (138041) BATERIA: ADC=2061 vADC=1.661 vBat=3.820[0m
+[0;32mI (138041) BATERIA: ADC=2042 vADC=1.646 vBat=3.785[0m
+[0;32mI (138051) BATERIA: ADC=2032 vADC=1.638 vBat=3.766[0m
+[0;32mI (138051) BATERIA: ADC=2046 vADC=1.649 vBat=3.792[0m
+[0;32mI (138061) BATERIA: ADC=2032 vADC=1.638 vBat=3.766[0m
+[0;32mI (138061) BATERIA: ADC=2045 vADC=1.648 vBat=3.790[0m
+[0;32mI (138071) BATERIA: ADC=2071 vADC=1.669 vBat=3.839[0m
+[0;32mI (138081) esp_rmaker_param: Notifying params: {"Switch":{"Medir Bateria":false}}[0m
+[0;32mI (138091) esp_rmaker_param: Reporting params: {"Switch":{"Medir Bateria":false,"Baterias 18650":3.82000}}[0m
+[0;33mW (138111) protocomm_httpd: Closing session with ID: 1906131026[0m
+[0;33mW (138331) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (138331) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (138331) app_main: MQTT Published. Msg id: 11916.[0m
+[0;33mW (138501) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (138501) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (138511) app_main: MQTT Published. Msg id: 38595.[0m
+[0;32mI (138551) app_network: Secured session established![0m
+[0;32mI (138591) esp_rmaker_param: Received params: {"Switch":{"Medir Bateria":true}}[0m
+[0;32mI (138591) esp_rmaker_param: Found 1 params in write request for Switch[0m
+[0;32mI (138601) app_main: Received write request via : Local[0m
+[0;32mI (138601) app_main: Received value = true para rotina de medição manual[0m
+[0;32mI (141351) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (143631) BATERIA: ADC=2131 vADC=1.717 vBat=3.950[0m
+[0;32mI (143631) BATERIA: ADC=2129 vADC=1.716 vBat=3.946[0m
+[0;32mI (143631) BATERIA: ADC=2146 vADC=1.729 vBat=3.978[0m
+[0;32mI (143631) BATERIA: ADC=2133 vADC=1.719 vBat=3.953[0m
+[0;32mI (143641) BATERIA: ADC=2119 vADC=1.708 vBat=3.928[0m
+[0;32mI (143641) BATERIA: ADC=2127 vADC=1.714 vBat=3.942[0m
+[0;32mI (143651) BATERIA: ADC=2139 vADC=1.724 vBat=3.965[0m
+[0;32mI (143651) BATERIA: ADC=2134 vADC=1.720 vBat=3.955[0m
+[0;32mI (143661) BATERIA: ADC=2123 vADC=1.711 vBat=3.935[0m
+[0;32mI (143671) BATERIA: ADC=2170 vADC=1.749 vBat=4.022[0m
+[0;32mI (143671) BATERIA: ADC=2142 vADC=1.726 vBat=3.970[0m
+[0;32mI (143681) BATERIA: ADC=2121 vADC=1.709 vBat=3.931[0m
+[0;32mI (143681) BATERIA: ADC=2124 vADC=1.712 vBat=3.937[0m
+[0;32mI (143691) BATERIA: ADC=2117 vADC=1.706 vBat=3.924[0m
+[0;32mI (143691) BATERIA: ADC=2114 vADC=1.704 vBat=3.918[0m
+[0;32mI (143701) BATERIA: ADC=2126 vADC=1.713 vBat=3.940[0m
+[0;32mI (143701) esp_rmaker_param: Notifying params: {"Switch":{"Medir Bateria":false}}[0m
+[0;32mI (143721) esp_rmaker_param: Reporting params: {"Switch":{"Medir Bateria":false,"Baterias 18650":3.95000}}[0m
+[0;33mW (143781) protocomm_httpd: Closing session with ID: 3870410505[0m
+[0;33mW (143861) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (143861) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (143861) app_main: MQTT Published. Msg id: 23801.[0m
+[0;33mW (144061) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (144061) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (144061) app_main: MQTT Published. Msg id: 52024.[0m
+[0;32mI (144211) app_network: Secured session established![0m
+[0;32mI (144241) esp_rmaker_param: Received params: {"Switch":{"Medir Bateria":true}}[0m
+[0;32mI (144241) esp_rmaker_param: Found 1 params in write request for Switch[0m
+[0;32mI (144251) app_main: Received write request via : Local[0m
+[0;32mI (144251) app_main: Received value = true para rotina de medição manual[0m
+[0;32mI (149281) BATERIA: ADC=2044 vADC=1.647 vBat=3.789[0m
+[0;32mI (149281) BATERIA: ADC=2031 vADC=1.637 vBat=3.764[0m
+[0;32mI (149281) BATERIA: ADC=2033 vADC=1.638 vBat=3.768[0m
+[0;32mI (149291) BATERIA: ADC=2034 vADC=1.639 vBat=3.770[0m
+[0;32mI (149291) BATERIA: ADC=2043 vADC=1.646 vBat=3.787[0m
+[0;32mI (149301) BATERIA: ADC=2063 vADC=1.662 vBat=3.824[0m
+[0;32mI (149301) BATERIA: ADC=2035 vADC=1.640 vBat=3.772[0m
+[0;32mI (149311) BATERIA: ADC=2035 vADC=1.640 vBat=3.772[0m
+[0;32mI (149311) BATERIA: ADC=2047 vADC=1.650 vBat=3.794[0m
+[0;32mI (149321) BATERIA: ADC=2047 vADC=1.650 vBat=3.794[0m
+[0;32mI (149321) BATERIA: ADC=2038 vADC=1.642 vBat=3.777[0m
+[0;32mI (149331) BATERIA: ADC=2035 vADC=1.640 vBat=3.772[0m
+[0;32mI (149331) BATERIA: ADC=2063 vADC=1.662 vBat=3.824[0m
+[0;32mI (149341) BATERIA: ADC=2033 vADC=1.638 vBat=3.768[0m
+[0;32mI (149351) BATERIA: ADC=2031 vADC=1.637 vBat=3.764[0m
+[0;32mI (149351) BATERIA: ADC=2045 vADC=1.648 vBat=3.790[0m
+[0;32mI (149361) esp_rmaker_param: Notifying params: {"Switch":{"Medir Bateria":false}}[0m
+[0;32mI (149371) esp_rmaker_param: Reporting params: {"Switch":{"Medir Bateria":false,"Baterias 18650":3.78000}}[0m
+[0;33mW (149401) protocomm_httpd: Closing session with ID: 2806559322[0m
+[0;33mW (149591) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (149591) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (149601) app_main: MQTT Published. Msg id: 50860.[0m
+[0;33mW (149781) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (149781) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (149791) app_main: MQTT Published. Msg id: 39411.[0m
+[0;32mI (149861) app_network: Secured session established![0m
+[0;32mI (149891) esp_rmaker_param: Received params: {"Switch":{"Medir Bateria":true}}[0m
+[0;32mI (149891) esp_rmaker_param: Found 1 params in write request for Switch[0m
+[0;32mI (149891) app_main: Received write request via : Local[0m
+[0;32mI (149901) app_main: Received value = true para rotina de medição manual[0m
+[0;32mI (151351) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (154931) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (154931) BATERIA: ADC=2126 vADC=1.713 vBat=3.940[0m
+[0;32mI (154931) BATERIA: ADC=2137 vADC=1.722 vBat=3.961[0m
+[0;32mI (154931) BATERIA: ADC=2131 vADC=1.717 vBat=3.950[0m
+[0;32mI (154941) BATERIA: ADC=2126 vADC=1.713 vBat=3.940[0m
+[0;32mI (154941) BATERIA: ADC=2138 vADC=1.723 vBat=3.963[0m
+[0;32mI (154951) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (154951) BATERIA: ADC=2133 vADC=1.719 vBat=3.953[0m
+[0;32mI (154961) BATERIA: ADC=2138 vADC=1.723 vBat=3.963[0m
+[0;32mI (154971) BATERIA: ADC=2185 vADC=1.761 vBat=4.050[0m
+[0;32mI (154971) BATERIA: ADC=2125 vADC=1.712 vBat=3.939[0m
+[0;32mI (154981) BATERIA: ADC=2146 vADC=1.729 vBat=3.978[0m
+[0;32mI (154981) BATERIA: ADC=2026 vADC=1.633 vBat=3.755[0m
+[0;32mI (154991) BATERIA: ADC=2129 vADC=1.716 vBat=3.946[0m
+[0;32mI (154991) BATERIA: ADC=2124 vADC=1.712 vBat=3.937[0m
+[0;32mI (155001) BATERIA: ADC=2109 vADC=1.700 vBat=3.909[0m
+[0;32mI (155001) esp_rmaker_param: Notifying params: {"Switch":{"Medir Bateria":false}}[0m
+[0;32mI (155021) esp_rmaker_param: Reporting params: {"Switch":{"Medir Bateria":false,"Baterias 18650":3.94000}}[0m
+[0;33mW (155051) protocomm_httpd: Closing session with ID: 2654968353[0m
+[0;33mW (155221) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (155221) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (155231) app_main: MQTT Published. Msg id: 15740.[0m
+[0;33mW (155431) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (155431) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (155431) app_main: MQTT Published. Msg id: 1099.[0m
+[0;32mI (155621) app_network: Secured session established![0m
+[0;32mI (155651) esp_rmaker_param: Received params: {"Switch":{"Medir Bateria":true}}[0m
+[0;32mI (155651) esp_rmaker_param: Found 1 params in write request for Switch[0m
+[0;32mI (155661) app_main: Received write request via : Local[0m
+[0;32mI (155661) app_main: Received value = true para rotina de medição manual[0m
+[0;32mI (160691) BATERIA: ADC=2132 vADC=1.718 vBat=3.952[0m
+[0;32mI (160691) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (160691) BATERIA: ADC=2129 vADC=1.716 vBat=3.946[0m
+[0;32mI (160691) BATERIA: ADC=2137 vADC=1.722 vBat=3.961[0m
+[0;32mI (160701) BATERIA: ADC=2114 vADC=1.704 vBat=3.918[0m
+[0;32mI (160701) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (160711) BATERIA: ADC=2129 vADC=1.716 vBat=3.946[0m
+[0;32mI (160711) BATERIA: ADC=2130 vADC=1.716 vBat=3.948[0m
+[0;32mI (160721) BATERIA: ADC=2129 vADC=1.716 vBat=3.946[0m
+[0;32mI (160731) BATERIA: ADC=2150 vADC=1.733 vBat=3.985[0m
+[0;32mI (160731) BATERIA: ADC=2127 vADC=1.714 vBat=3.942[0m
+[0;32mI (160741) BATERIA: ADC=2119 vADC=1.708 vBat=3.928[0m
+[0;32mI (160741) BATERIA: ADC=2033 vADC=1.638 vBat=3.768[0m
+[0;32mI (160751) BATERIA: ADC=2039 vADC=1.643 vBat=3.779[0m
+[0;32mI (160751) BATERIA: ADC=2025 vADC=1.632 vBat=3.753[0m
+[0;32mI (160761) BATERIA: ADC=2031 vADC=1.637 vBat=3.764[0m
+[0;32mI (160761) esp_rmaker_param: Notifying params: {"Switch":{"Medir Bateria":false}}[0m
+[0;32mI (160781) esp_rmaker_param: Reporting params: {"Switch":{"Medir Bateria":false,"Baterias 18650":3.90000}}[0m
+[0;33mW (160981) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (160981) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (160981) app_main: MQTT Published. Msg id: 38296.[0m
+[0;33mW (161001) protocomm_httpd: Closing session with ID: 813684129[0m
+[0;33mW (161121) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (161121) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (161131) app_main: MQTT Published. Msg id: 52767.[0m
+[0;32mI (161351) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (161421) app_network: Secured session established![0m
+[0;32mI (161451) esp_rmaker_param: Received params: {"Switch":{"Medir Bateria":true}}[0m
+[0;32mI (161451) esp_rmaker_param: Found 1 params in write request for Switch[0m
+[0;32mI (161451) app_main: Received write request via : Local[0m
+[0;32mI (161461) app_main: Received value = true para rotina de medição manual[0m
+[0;32mI (166481) BATERIA: ADC=2068 vADC=1.667 vBat=3.833[0m
+[0;32mI (166481) BATERIA: ADC=1961 vADC=1.580 vBat=3.635[0m
+[0;32mI (166481) BATERIA: ADC=2055 vADC=1.656 vBat=3.809[0m
+[0;32mI (166481) BATERIA: ADC=2121 vADC=1.709 vBat=3.931[0m
+[0;32mI (166491) BATERIA: ADC=2125 vADC=1.712 vBat=3.939[0m
+[0;32mI (166491) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (166501) BATERIA: ADC=2146 vADC=1.729 vBat=3.978[0m
+[0;32mI (166501) BATERIA: ADC=2124 vADC=1.712 vBat=3.937[0m
+[0;32mI (166511) BATERIA: ADC=2134 vADC=1.720 vBat=3.955[0m
+[0;32mI (166521) BATERIA: ADC=2147 vADC=1.730 vBat=3.979[0m
+[0;32mI (166521) BATERIA: ADC=2121 vADC=1.709 vBat=3.931[0m
+[0;32mI (166531) BATERIA: ADC=2103 vADC=1.695 vBat=3.898[0m
+[0;32mI (166531) BATERIA: ADC=2123 vADC=1.711 vBat=3.935[0m
+[0;32mI (166541) BATERIA: ADC=2125 vADC=1.712 vBat=3.939[0m
+[0;32mI (166541) BATERIA: ADC=2125 vADC=1.712 vBat=3.939[0m
+[0;32mI (166551) BATERIA: ADC=2180 vADC=1.757 vBat=4.041[0m
+[0;32mI (166551) esp_rmaker_param: Notifying params: {"Switch":{"Medir Bateria":false}}[0m
+[0;32mI (166571) esp_rmaker_param: Reporting params: {"Switch":{"Medir Bateria":false,"Baterias 18650":3.91000}}[0m
+[0;33mW (166581) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;31mE (166581) protocomm_httpd: HTTP send failed[0m
+[0;33mW (166581) httpd_uri: httpd_uri: uri handler execution failed[0m
+[0;33mW (166801) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (166801) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (166801) app_main: MQTT Published. Msg id: 11065.[0m
+[0;33mW (167101) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (167111) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (167111) app_main: MQTT Published. Msg id: 28467.[0m
+[0;31mE (167161) esp_local_ctrl_handler: Unable to unpack payload data[0m
+[0;31mE (167171) protocomm: Request handler for esp_local_ctrl/control failed[0m
+[0;31mE (167171) protocomm_httpd: Data handler failed[0m
+[0;33mW (167171) httpd_uri: httpd_uri: uri handler execution failed[0m
+[0;33mW (167231) protocomm_httpd: Closing session with ID: 509328762[0m
+[0;32mI (168021) app_network: Secured session established![0m
+[0;32mI (168431) esp_rmaker_param: Received params: {"Switch":{"Medir Bateria":true}}[0m
+[0;32mI (168431) esp_rmaker_param: Found 1 params in write request for Switch[0m
+[0;32mI (168441) app_main: Received write request via : Local[0m
+[0;32mI (168441) app_main: Received value = true para rotina de medição manual[0m
+[0;32mI (171351) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (173471) BATERIA: ADC=1957 vADC=1.577 vBat=3.627[0m
+[0;32mI (173471) BATERIA: ADC=2039 vADC=1.643 vBat=3.779[0m
+[0;32mI (173471) BATERIA: ADC=2031 vADC=1.637 vBat=3.764[0m
+[0;32mI (173471) BATERIA: ADC=1936 vADC=1.560 vBat=3.588[0m
+[0;32mI (173481) BATERIA: ADC=2042 vADC=1.646 vBat=3.785[0m
+[0;32mI (173481) BATERIA: ADC=2019 vADC=1.627 vBat=3.742[0m
+[0;32mI (173491) BATERIA: ADC=2031 vADC=1.637 vBat=3.764[0m
+[0;32mI (173491) BATERIA: ADC=2038 vADC=1.642 vBat=3.777[0m
+[0;32mI (173501) BATERIA: ADC=2043 vADC=1.646 vBat=3.787[0m
+[0;32mI (173511) BATERIA: ADC=2037 vADC=1.642 vBat=3.776[0m
+[0;32mI (173511) BATERIA: ADC=2126 vADC=1.713 vBat=3.940[0m
+[0;32mI (173521) BATERIA: ADC=2129 vADC=1.716 vBat=3.946[0m
+[0;32mI (173521) BATERIA: ADC=2130 vADC=1.716 vBat=3.948[0m
+[0;32mI (173531) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (173531) BATERIA: ADC=2138 vADC=1.723 vBat=3.963[0m
+[0;32mI (173541) BATERIA: ADC=2129 vADC=1.716 vBat=3.946[0m
+[0;32mI (173551) esp_rmaker_param: Notifying params: {"Switch":{"Medir Bateria":false}}[0m
+[0;32mI (173561) esp_rmaker_param: Reporting params: {"Switch":{"Medir Bateria":false,"Baterias 18650":3.82000}}[0m
+[0;33mW (173581) protocomm_httpd: Closing session with ID: 1923645830[0m
+[0;33mW (173761) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (173761) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (173771) app_main: MQTT Published. Msg id: 13331.[0m
+[0;33mW (173961) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (173961) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (173961) app_main: MQTT Published. Msg id: 32383.[0m
+[0;32mI (174121) app_network: Secured session established![0m
+[0;32mI (174151) esp_rmaker_param: Received params: {"Switch":{"Medir Bateria":true}}[0m
+[0;32mI (174151) esp_rmaker_param: Found 1 params in write request for Switch[0m
+[0;32mI (174161) app_main: Received write request via : Local[0m
+[0;32mI (174161) app_main: Received value = true para rotina de medição manual[0m
+[0;32mI (179191) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (179191) BATERIA: ADC=2112 vADC=1.702 vBat=3.915[0m
+[0;32mI (179191) BATERIA: ADC=2127 vADC=1.714 vBat=3.942[0m
+[0;32mI (179191) BATERIA: ADC=2119 vADC=1.708 vBat=3.928[0m
+[0;32mI (179201) BATERIA: ADC=2128 vADC=1.715 vBat=3.944[0m
+[0;32mI (179201) BATERIA: ADC=2135 vADC=1.721 vBat=3.957[0m
+[0;32mI (179211) BATERIA: ADC=2126 vADC=1.713 vBat=3.940[0m
+[0;32mI (179211) BATERIA: ADC=2123 vADC=1.711 vBat=3.935[0m
+[0;32mI (179221) BATERIA: ADC=2137 vADC=1.722 vBat=3.961[0m
+[0;32mI (179231) BATERIA: ADC=2134 vADC=1.720 vBat=3.955[0m
+[0;32mI (179231) BATERIA: ADC=2127 vADC=1.714 vBat=3.942[0m
+[0;32mI (179241) BATERIA: ADC=2115 vADC=1.704 vBat=3.920[0m
+[0;32mI (179241) BATERIA: ADC=2131 vADC=1.717 vBat=3.950[0m
+[0;32mI (179251) BATERIA: ADC=2144 vADC=1.728 vBat=3.974[0m
+[0;32mI (179251) BATERIA: ADC=2133 vADC=1.719 vBat=3.953[0m
+[0;32mI (179261) BATERIA: ADC=2126 vADC=1.713 vBat=3.940[0m
+[0;32mI (179261) esp_rmaker_param: Notifying params: {"Switch":{"Medir Bateria":false}}[0m
+[0;32mI (179281) esp_rmaker_param: Reporting params: {"Switch":{"Medir Bateria":false,"Baterias 18650":3.94000}}[0m
+[0;33mW (179291) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;31mE (179291) protocomm_httpd: HTTP send failed[0m
+[0;33mW (179301) httpd_uri: httpd_uri: uri handler execution failed[0m
+[0;33mW (179491) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (179491) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (179501) app_main: MQTT Published. Msg id: 9086.[0m
+[0;33mW (179701) app_main: [DEBUG] event_handler: event_base=0x3f41a720, event_id=5[0m
+[0;33mW (179701) app_main: [DEBUG] RMAKER_COMMON_EVENT: event_id=5[0m
+[0;32mI (179701) app_main: MQTT Published. Msg id: 28125.[0m
+[0;33mW (180421) protocomm_httpd: Closing session with ID: 18639924[0m
+[0;32mI (180861) app_network: Secured session established![0m
+[0;32mI (180901) esp_rmaker_param: Received params: {"Switch":{"Medir Bateria":true}}[0m
+[0;32mI (180901) esp_rmaker_param: Found 1 params in write request for Switch[0m
+[0;32mI (180911) app_main: Received write request via : Local[0m
+[0;32mI (180911) app_main: Received value = true para rotina de medição manua

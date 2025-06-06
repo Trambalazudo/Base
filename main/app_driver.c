@@ -13,6 +13,7 @@
 #include <esp_rmaker_standard_params.h>
 #include <esp_rmaker_utils.h> // Para esp_rmaker_wifi_reset
 #include "app_priv.h"
+#include "app_driver.h"
 #include "driver/gpio.h"
 #include "driver/adc.h"
 #include "esp_adc_cal.h"
@@ -117,6 +118,7 @@ void buzzer_beep(int freq, int duration_ms) {
 static void led_btn_cb(void *arg) {
     led2_state = !led2_state;
     app_driver_set_led(led2_state);
+    app_driver_update_led_param(led2_state); // Notifica o app RainMaker
     buzzer_beep(2000, 100);
 }
 
@@ -185,8 +187,13 @@ void app_driver_init() {
     gpio_config(&buzzer_conf);
 }
 
-// --- Prototipagem de funções ---
-void app_driver_update_led_param(bool led_on);
+void app_driver_update_led_param(bool led_on)
+{
+    esp_rmaker_param_t *led_param = esp_rmaker_device_get_param_by_name(switch_device, "LED");
+    if (led_param) {
+        esp_rmaker_param_update_and_notify(led_param, esp_rmaker_bool(led_on));
+    }
+}
 
 // --- Função chamada pelo botão físico para alterar o estado de relé/saída ---
 int IRAM_ATTR app_driver_set_state(bool state)
@@ -212,12 +219,18 @@ void app_driver_update_battery_voltage(void) {
 }
 
 void battery_voltage_task(void *param) {
+    extern SemaphoreHandle_t medir_mutex; // Usa o mesmo mutex global
     while (1) {
-        gpio_set_level(BATTERY_RELAY_GPIO, 0); // Atraca (nível baixo)
-        vTaskDelay(pdMS_TO_TICKS(20000));      // 20 segundos
-        app_driver_update_battery_voltage();    // Mede a bateria
-        gpio_set_level(BATTERY_RELAY_GPIO, 1); // Desatraca (nível alto)
-        vTaskDelay(pdMS_TO_TICKS(100000));     // 100 segundos
+        if (medir_mutex && xSemaphoreTake(medir_mutex, pdMS_TO_TICKS(100)) == pdTRUE) {
+            gpio_set_level(BATTERY_RELAY_GPIO, 0); // Atraca (nível baixo)
+            vTaskDelay(pdMS_TO_TICKS(20000));      // 20 segundos
+            app_driver_update_battery_voltage();    // Mede a bateria
+            gpio_set_level(BATTERY_RELAY_GPIO, 1); // Desatraca (nível alto)
+            xSemaphoreGive(medir_mutex);
+        } else {
+            ESP_LOGW(TAG, "Medição automática pulada: medição manual em andamento.");
+        }
+        vTaskDelay(pdMS_TO_TICKS(1200000));    // 20 minutos
     }
 }
 
@@ -266,8 +279,22 @@ void check_battery_and_sleep(void) {
 
     if (vbat < 3.20f) {
         status_msg = "Entrar em hibernação";
+        // Hibernação imediata se <= 3.10V
+        if (vbat <= 3.10f && !is_provisioning_active) {
+            ESP_LOGW("BATERIA", "Entrando em hibernação (vbat=%.2fV)", vbat);
+            if (battery_status_param) {
+                esp_rmaker_param_update_and_notify(battery_status_param, esp_rmaker_str("Entrar em hibernação"));
+            }
+            vTaskDelay(pdMS_TO_TICKS(2000));
+            ESP_LOGW("HIBERNACAO", "Entrando em deep sleep. Só acorda com RESET.");
+            esp_sleep_disable_wakeup_source(ESP_SLEEP_WAKEUP_ALL);
+            esp_deep_sleep_start();
+            ESP_LOGE("HIBERNACAO", "ERRO: Código continuou após esp_deep_sleep_start()! Isto NÃO deveria acontecer.");
+        }
     } else if (vbat < 3.30f) {
         status_msg = "Preparar hibernação";
+        // Aviso sonoro alto no buzzer
+        buzzer_beep(3000, 800); // 3kHz, 800ms
     } else if (vbat < 3.50f) {
         status_msg = "Redução de consumo";
     }
@@ -345,13 +372,4 @@ void app_driver_monitor_state(void)
     int led5 = gpio_get_level(LED2_GPIO);
     int relay19 = gpio_get_level(BATTERY_RELAY_GPIO);
     ESP_LOGI("MONITOR", "GPIO5 (LED): %d | GPIO19 (relé): %d", led5, relay19);
-}
-
-// --- Atualiza o estado do LED no RainMaker ---
-void app_driver_update_led_param(bool led_on)
-{
-    esp_rmaker_param_t *led_param = esp_rmaker_device_get_param_by_name(switch_device, "LED");
-    if (led_param) {
-        esp_rmaker_param_update_and_notify(led_param, esp_rmaker_bool(led_on));
-    }
 }
