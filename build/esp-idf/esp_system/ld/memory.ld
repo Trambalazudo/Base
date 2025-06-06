@@ -121,9 +121,9 @@ MEMORY
   drom0_0_seg (R) : org = 0x3F400020, len = 0x400000-0x20
   /* (See iram0_2_seg for meaning of 0x20 offset in the above.) */
   /* RTC fast memory (executable). Persists over deep sleep. */
-  rtc_iram_seg(RWX) : org = 0x400C0000, len = 0x2000 - (0x10)
+  rtc_iram_seg(RWX) : org = 0x400C0000, len = 0x2000 - 0
   /* RTC fast memory (same block as above, rtc_iram_seg), viewed from data bus */
-  rtc_data_seg(RW) : org = 0x3ff80000, len = 0x2000 - (0x10)
+  rtc_data_seg(RW) : org = 0x3ff80000, len = 0x2000 - 0
   /* We reduced the size of rtc_iram_seg and rtc_data_seg by ESP_BOOTLOADER_RESERVE_RTC value.
 
      It reserves the amount of RTC fast memory that we use for this memory segment.
@@ -135,7 +135,7 @@ MEMORY
      org = 0x3ff80000 + 0x2000 - ESP_BOOTLOADER_RESERVE_RTC == SOC_RTC_DRAM_HIGH - sizeof(rtc_retain_mem_t)
 
   */
-  rtc_fast_reserved_seg(RW) : org = 0x3ff80000 + 0x2000 - (0x10), len = (0x10)
+  rtc_fast_reserved_seg(RW) : org = 0x3ff80000 + 0x2000 - 0, len = 0
   /* RTC slow memory (data accessible). Persists over deep sleep.
 
 

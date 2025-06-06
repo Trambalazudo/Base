@@ -18,7 +18,7 @@ set(HEAD_HASH)
 file(READ "C:/Espressif/PROJ/esp-rainmaker/examples/switch/build/esp-idf/espressif__esp_insights/CMakeFiles/git-data/HEAD" HEAD_CONTENTS LIMIT 1024)
 
 string(STRIP "${HEAD_CONTENTS}" HEAD_CONTENTS)
-set(GIT_DIR "C:/Espressif/PROJ/esp-rainmaker/.git")
+set(GIT_DIR "C:/Espressif/PROJ/esp-rainmaker/examples/switch/.git")
 # handle git-worktree
 if(EXISTS "${GIT_DIR}/commondir")
 	file(READ "${GIT_DIR}/commondir" GIT_DIR_NEW LIMIT 1024)

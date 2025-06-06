@@ -3116,10 +3116,7 @@
                         "help": "The selected GPIO will be configured as an input with internal pull-up enabled (note that on some SoCs.\nnot all pins have an internal pull-up, consult the hardware datasheet for details.) To trigger a factory\nreset, this GPIO must be held high or low (as configured) on startup.",
                         "id": "BOOTLOADER_NUM_PIN_FACTORY_RESET",
                         "name": "BOOTLOADER_NUM_PIN_FACTORY_RESET",
-                        "range": [
-                            0,
-                            39
-                        ],
+                        "range": null,
                         "title": "Number of the GPIO input for factory reset",
                         "type": "int"
                     },
@@ -11972,7 +11969,10 @@
                                                 "help": "Maximum number of adv packets which can be recorded in duplicate scan cache for BLE Mesh.\nWhen the maximum amount of device in the filter is reached, the cache will be refreshed.",
                                                 "id": "BTDM_MESH_DUPL_SCAN_CACHE_SIZE",
                                                 "name": "BTDM_MESH_DUPL_SCAN_CACHE_SIZE",
-                                                "range": null,
+                                                "range": [
+                                                    10,
+                                                    1000
+                                                ],
                                                 "title": "Maximum number of Mesh adv packets in scan duplicate filter",
                                                 "type": "int"
                                             }

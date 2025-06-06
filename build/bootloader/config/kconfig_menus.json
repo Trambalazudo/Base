@@ -3116,10 +3116,7 @@
                         "help": "The selected GPIO will be configured as an input with internal pull-up enabled (note that on some SoCs.\nnot all pins have an internal pull-up, consult the hardware datasheet for details.) To trigger a factory\nreset, this GPIO must be held high or low (as configured) on startup.",
                         "id": "BOOTLOADER_NUM_PIN_FACTORY_RESET",
                         "name": "BOOTLOADER_NUM_PIN_FACTORY_RESET",
-                        "range": [
-                            0,
-                            39
-                        ],
+                        "range": null,
                         "title": "Number of the GPIO input for factory reset",
                         "type": "int"
                     },
