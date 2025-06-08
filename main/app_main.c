@@ -15,6 +15,8 @@
 #include <esp_event.h>
 #include <nvs_flash.h>
 #include "freertos/semphr.h"
+#include "esp_timer.h"
+#include "freertos/queue.h"
 
 #include <esp_rmaker_core.h>
 #include <esp_rmaker_standard_types.h>
@@ -41,9 +43,13 @@ extern void set_provisioning_state(bool active);
 
 static const char *TAG = "app_main";
 esp_rmaker_device_t *switch_device;
+esp_rmaker_param_t *reset_param = NULL;
 
 /* Mutex para proteger medição manual */
-static SemaphoreHandle_t medir_mutex = NULL;
+SemaphoreHandle_t medir_mutex = NULL;
+
+/* Fila para pedidos de medição manual */
+static QueueHandle_t medir_queue = NULL;
 
 /* Callback to handle commands received from the RainMaker cloud */
 static esp_err_t write_cb(const esp_rmaker_device_t *device, const esp_rmaker_param_t *param,
@@ -59,7 +65,8 @@ static esp_err_t write_cb(const esp_rmaker_device_t *device, const esp_rmaker_pa
         // Parâmetro removido: não faz mais nada
     } else if (strcmp(param_name, "Medir Bateria") == 0) {
         ESP_LOGI(TAG, "Received value = %s para rotina de medição manual", val.val.b ? "true" : "false");
-        if (val.val.b) {
+        esp_rmaker_param_val_t current = *esp_rmaker_param_get_val((esp_rmaker_param_t *)param);
+        if (!current.val.b && val.val.b) {
             int64_t agora = esp_timer_get_time() / 1000;
             if (agora - ultima_medir_ms < DEBOUNCE_MS) {
                 ESP_LOGW(TAG, "Medição manual ignorada: debounce ativo (%lld ms restantes)",
@@ -67,18 +74,15 @@ static esp_err_t write_cb(const esp_rmaker_device_t *device, const esp_rmaker_pa
                 esp_rmaker_param_update_and_notify((esp_rmaker_param_t *)param, esp_rmaker_bool(false));
                 return ESP_OK;
             }
-            if (medir_mutex && xSemaphoreTake(medir_mutex, 0) == pdTRUE) {
+            if (medir_queue) {
+                // Sinaliza pedido de medição manual para a task
+                int dummy = 1;
+                xQueueSend(medir_queue, &dummy, 0);
                 ultima_medir_ms = agora;
-                gpio_set_level(BATTERY_RELAY_GPIO, 0);
-                vTaskDelay(pdMS_TO_TICKS(5000));
-                app_driver_update_battery_voltage();
-                gpio_set_level(BATTERY_RELAY_GPIO, 1);
-                esp_rmaker_param_update_and_notify((esp_rmaker_param_t *)param, esp_rmaker_bool(false));
-                xSemaphoreGive(medir_mutex);
-            } else {
-                ESP_LOGW(TAG, "Medição manual ignorada: já em andamento.");
-                esp_rmaker_param_update_and_notify((esp_rmaker_param_t *)param, esp_rmaker_bool(false));
             }
+            esp_rmaker_param_update_and_notify((esp_rmaker_param_t *)param, esp_rmaker_bool(false));
+        } else {
+            esp_rmaker_param_update_and_notify((esp_rmaker_param_t *)param, esp_rmaker_bool(false));
         }
     } else if (strcmp(param_name, "LED") == 0) {
         ESP_LOGI(TAG, "Received value = %s for %s - %s (LED)",
@@ -90,7 +94,8 @@ static esp_err_t write_cb(const esp_rmaker_device_t *device, const esp_rmaker_pa
     } else if (strcmp(param_name, "Reset ESP32") == 0) {
         ESP_LOGW(TAG, "Comando de reset remoto recebido pelo app!");
         if (val.val.b) {
-            vTaskDelay(pdMS_TO_TICKS(500)); // Pequeno delay para garantir envio MQTT
+            vTaskDelay(pdMS_TO_TICKS(500));
+            esp_rmaker_param_update_and_notify(reset_param, esp_rmaker_bool(false));
             esp_restart();
         }
     } else {
@@ -218,10 +223,12 @@ void monitor_task(void *param)
 // Protótipos para evitar erro de declaração implícita
 void app_driver_set_led(bool on);
 void app_driver_update_led_param(bool led_on);
+void medir_bateria_manual_task(void *param);
 
 void app_main()
 {
     medir_mutex = xSemaphoreCreateMutex();
+    medir_queue = xQueueCreate(2, sizeof(int));
     /* Força reset de provisionamento para debug BLE sempre ativo */
     network_prov_mgr_reset_wifi_provisioning();
 
@@ -306,9 +313,18 @@ void app_main()
     esp_rmaker_device_add_param(switch_device, battery_status_param);
 
     // Adiciona parâmetro de reset da placa
-    esp_rmaker_param_t *reset_param = esp_rmaker_param_create("Reset ESP32", NULL, esp_rmaker_bool(false), PROP_FLAG_READ | PROP_FLAG_WRITE);
+    reset_param = esp_rmaker_param_create("Reset ESP32", NULL, esp_rmaker_bool(false), PROP_FLAG_READ | PROP_FLAG_WRITE);
     esp_rmaker_param_add_ui_type(reset_param, "esp.ui.toggle");
     esp_rmaker_device_add_param(switch_device, reset_param);
+
+    // Adiciona parâmetro de percentagem da bateria (inteiro, 0-100)
+    battery_percent_param = esp_rmaker_param_create("Bateria (%)", NULL, esp_rmaker_int(100), PROP_FLAG_READ);
+    esp_rmaker_param_add_ui_type(battery_percent_param, "esp.ui.text");
+    esp_rmaker_param_add_bounds(battery_percent_param, esp_rmaker_int(0), esp_rmaker_int(100), esp_rmaker_int(1));
+    esp_rmaker_device_add_param(switch_device, battery_percent_param);
+    // Torna global para uso em app_driver.c
+    extern esp_rmaker_param_t *battery_percent_param;
+    battery_percent_param = battery_percent_param;
 
     /* Assign the relé parameter as the primary, so that it can be controlled from the
      * home screen of the phone apps.
@@ -344,6 +360,7 @@ void app_main()
     xTaskCreate(battery_voltage_task, "battery_voltage_task", 4096, NULL, 5, NULL);
     xTaskCreate(battery_management_task, "battery_management_task", 4096, NULL, 5, NULL);
     xTaskCreate(monitor_task, "monitor_task", 2048, NULL, 1, NULL);
+    xTaskCreate(medir_bateria_manual_task, "medir_bateria_manual_task", 4096, NULL, 5, NULL);
 
     err = app_network_set_custom_mfg_data(MGF_DATA_DEVICE_TYPE_SWITCH, MFG_DATA_DEVICE_SUBTYPE_SWITCH);
     /* Start the Wi-Fi.
@@ -382,4 +399,21 @@ void app_main()
 
     /* Força timezone para Europe/Lisbon (Portugal, GMT+0/1) */
     esp_rmaker_time_set_timezone("Europe/Lisbon");
+}
+
+void medir_bateria_manual_task(void *param) {
+    while (1) {
+        int dummy;
+        if (xQueueReceive(medir_queue, &dummy, portMAX_DELAY) == pdTRUE) {
+            if (medir_mutex && xSemaphoreTake(medir_mutex, pdMS_TO_TICKS(1000)) == pdTRUE) {
+                gpio_set_level(BATTERY_RELAY_GPIO, 0);
+                vTaskDelay(pdMS_TO_TICKS(5000));
+                app_driver_update_battery_voltage();
+                gpio_set_level(BATTERY_RELAY_GPIO, 1);
+                xSemaphoreGive(medir_mutex);
+            } else {
+                ESP_LOGW(TAG, "Medição manual ignorada: mutex ocupado.");
+            }
+        }
+    }
 }

@@ -59,6 +59,7 @@ static bool led2_state = false;
 
 esp_rmaker_param_t *battery_voltage_param = NULL;
 esp_rmaker_param_t *battery_status_param = NULL;
+esp_rmaker_param_t *battery_percent_param = NULL; // Novo parâmetro para percentagem da bateria
 
 // Valor inicial seguro para evitar vbat=0.00V antes da primeira medição
 static float ultima_tensao_bateria = 3.7f;
@@ -76,6 +77,7 @@ float ler_tensao_bateria(void) {
         float vBat = vADC * ((VBAT_DIV_R1 + VBAT_DIV_R2) / VBAT_DIV_R2);
         // Calibração: ajuste para que a leitura "bata" com 4.057V reais
         vBat *= 1.15f; // Fator de calibração inicial (ajuste conforme necessário)
+        vBat -= 0.15f; // Correção solicitada: subtrai 0.15V da leitura
         ESP_LOGI(TAG, "ADC=%d vADC=%.3f vBat=%.3f", leituraADC, vADC, vBat);
         soma += vBat;
         vTaskDelay(pdMS_TO_TICKS(2));
@@ -215,6 +217,14 @@ void app_driver_update_battery_voltage(void) {
     if (battery_voltage_param) {
         float vbat_2d = ((int)(vbat * 100 + 0.5f)) / 100.0f;
         esp_rmaker_param_update(battery_voltage_param, esp_rmaker_float(vbat_2d));
+    }
+    // Atualiza percentagem da bateria
+    if (battery_percent_param) {
+        // 100% = 4.20V, 0% = 3.20V (linear)
+        int percent = (int)((vbat - 3.20f) * 100.0f / (4.20f - 3.20f));
+        if (percent > 100) percent = 100;
+        if (percent < 0) percent = 0;
+        esp_rmaker_param_update(battery_percent_param, esp_rmaker_int(percent));
     }
 }
 

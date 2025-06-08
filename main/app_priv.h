@@ -15,6 +15,7 @@
 extern esp_rmaker_device_t *switch_device;
 extern esp_rmaker_param_t *battery_voltage_param;
 extern esp_rmaker_param_t *battery_status_param;
+extern esp_rmaker_param_t *battery_percent_param;
 void app_driver_init(void);
 int app_driver_set_state(bool state);
 bool app_driver_get_state(void);
