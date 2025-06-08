@@ -8,6 +8,7 @@ Este projeto é um template para dispositivos ESP RainMaker com controle de rel�
 - Reset Wi-Fi (3s) e reset de fábrica (10s) via botão no GPIO0
 - Monitoramento da tensão do banco de baterias (Baterias 18650) via ADC (GPIO34)
 - Parâmetro de tensão exibido na app ESP RainMaker, com 2 casas decimais
+- Exibe também a percentagem da bateria (parâmetro "Bateria (%)"), calculada de forma linear entre 3.20V (0%) e 4.20V (100%).
 - Modos automáticos de economia de energia:
   - **Light Sleep**: das 18:30 às 19:59 se tensão > 3.5V
   - **Hibernação (Deep Sleep)**: das 20:00 às 5:59 ou se tensão < 3.1V
@@ -27,6 +28,7 @@ Siga a documentação oficial do ESP RainMaker para compilar, flashar e provisio
 - Pressionar o botão físico (GPIO4) alterna o LED externo.
 - O estado do LED pode ser controlado também pelo botão físico (GPIO4) e pelo app ESP RainMaker, e ambos ficam sempre sincronizados.
 - O parâmetro "Baterias 18650" mostra a tensão do banco de baterias na app.
+- O parâmetro "Bateria (%)" exibe a percentagem da bateria, calculada linearmente com base na tensão.
 - O ESP32 entra automaticamente em light sleep ou hibernação conforme horário e tensão das baterias.
 - A medição manual ("Medir Bateria") não permite múltiplas execuções simultâneas, mesmo com comandos repetidos do app.
 

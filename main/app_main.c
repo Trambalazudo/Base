@@ -51,6 +51,20 @@ SemaphoreHandle_t medir_mutex = NULL;
 /* Fila para pedidos de medição manual */
 static QueueHandle_t medir_queue = NULL;
 
+/*
+ * Exemplo de Switch ESP RainMaker com controle de LED, relé, monitoramento de bateria e economia de energia.
+ *
+ * Este código implementa:
+ * - Controle de LED externo via botão físico e app (sincronização total)
+ * - Medição automática e manual da tensão da bateria (com debounce e proteção contra reentrância)
+ * - Exibição da tensão e percentagem da bateria no app (parâmetros "Baterias 18650" e "Bateria (%)")
+ * - Modos automáticos de economia de energia (light sleep e deep sleep)
+ * - Reset remoto via app
+ * - Status da bateria exibido no app
+ *
+ * Comentários detalhados incluídos para facilitar manutenção e entendimento futuro.
+ */
+
 /* Callback to handle commands received from the RainMaker cloud */
 static esp_err_t write_cb(const esp_rmaker_device_t *device, const esp_rmaker_param_t *param,
             const esp_rmaker_param_val_t val, void *priv_data, esp_rmaker_write_ctx_t *ctx)
@@ -401,6 +415,9 @@ void app_main()
     esp_rmaker_time_set_timezone("Europe/Lisbon");
 }
 
+/* Task dedicada para medição manual da bateria (acionada por comando do app)
+ * Garante mutex e tempo de relé, chama atualização dos parâmetros de bateria.
+ */
 void medir_bateria_manual_task(void *param) {
     while (1) {
         int dummy;

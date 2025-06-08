@@ -212,15 +212,20 @@ bool app_driver_get_state(void)
 }
 
 // --- Monitoramento de bateria ---
+// Esta função lê a tensão da bateria, atualiza o parâmetro de tensão (em volts)
+// e também calcula e atualiza a percentagem da bateria (0-100%) para o app RainMaker.
 void app_driver_update_battery_voltage(void) {
+    // Lê a tensão da bateria (função já faz média e calibração)
     float vbat = ler_tensao_bateria();
+    // Atualiza o parâmetro de tensão (com 2 casas decimais)
     if (battery_voltage_param) {
-        float vbat_2d = ((int)(vbat * 100 + 0.5f)) / 100.0f;
+        float vbat_2d = ((int)(vbat * 100 + 0.5f)) / 100.0f; // Arredonda para 2 casas
         esp_rmaker_param_update(battery_voltage_param, esp_rmaker_float(vbat_2d));
     }
     // Atualiza percentagem da bateria
     if (battery_percent_param) {
-        // 100% = 4.20V, 0% = 3.20V (linear)
+        // Cálculo linear: 100% = 4.20V, 0% = 3.20V
+        // Se vbat >= 4.20V, mostra 100%. Se <= 3.20V, mostra 0%.
         int percent = (int)((vbat - 3.20f) * 100.0f / (4.20f - 3.20f));
         if (percent > 100) percent = 100;
         if (percent < 0) percent = 0;
