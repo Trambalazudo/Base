@@ -17,7 +17,6 @@
 #include "driver/gpio.h"
 #include "driver/adc.h"
 #include "esp_adc_cal.h"
-#include <esp_log.h>
 #include "driver/ledc.h"
 #define TAG "BATERIA"
 
@@ -276,8 +275,8 @@ static bool is_forced_hibernation_time(void)
     struct tm info;
     get_local_time(&info);
     int hour = info.tm_hour;
-    // Hiberna das 3h às 9h
-    if (hour >= 3 && hour < 9) return true;
+    // Novo período: hiberna das 19h (inclusive) até 7h (exclusive)
+    if (hour >= 19 || hour < 7) return true;
     return false;
 }
 
