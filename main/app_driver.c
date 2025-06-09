@@ -18,6 +18,7 @@
 #include "driver/adc.h"
 #include "esp_adc_cal.h"
 #include "driver/ledc.h"
+#include "esp_log.h"
 #define TAG "BATERIA"
 
 // Flag global para controle do estado de provisioning
@@ -186,6 +187,7 @@ void app_driver_init() {
         .intr_type = GPIO_INTR_DISABLE
     };
     gpio_config(&buzzer_conf);
+    // boot_time = time(NULL); // Removido! Agora só é inicializado após SNTP
 }
 
 void app_driver_update_led_param(bool led_on)
@@ -290,6 +292,13 @@ void check_battery_and_sleep(void) {
         ESP_LOGI(TAG, "Ignorando verificação de bateria durante provisioning");
         return;
     }
+    // --- NOVO: Não hibernar nos primeiros 5 minutos após boot ---
+    time_t now = time(NULL);
+    ESP_LOGI(TAG, "DEBUG: boot_time=%lld now=%lld (dif=%lld)", (long long)boot_time, (long long)now, (long long)(now - boot_time));
+    if (boot_time > 0 && (now - boot_time) < 300) {
+        ESP_LOGI(TAG, "Ignorando hibernação nos primeiros 5 minutos após boot para testes.");
+        return;
+    }
 
     if (vbat < 3.20f) {
         status_msg = "Entrar em hibernação";
@@ -300,6 +309,9 @@ void check_battery_and_sleep(void) {
                 esp_rmaker_param_update_and_notify(battery_status_param, esp_rmaker_str("Entrar em hibernação"));
             }
             vTaskDelay(pdMS_TO_TICKS(2000));
+            gpio_set_level(LED2_GPIO, 0); // Garante LED desligado antes de hibernar
+            gpio_hold_en(LED2_GPIO);      // Mantém o estado do pino durante deep sleep
+            gpio_deep_sleep_hold_en();    // Ativa o hold global
             ESP_LOGW("HIBERNACAO", "Entrando em deep sleep. Só acorda com RESET.");
             esp_sleep_disable_wakeup_source(ESP_SLEEP_WAKEUP_ALL);
             esp_deep_sleep_start();
@@ -321,8 +333,11 @@ void check_battery_and_sleep(void) {
     // --- NOVA LÓGICA: hiberna imediatamente ao entrar no horário de hibernação (3h-9h) ---
     // Mas não durante provisioning
     if (is_forced_hibernation_time() && !is_provisioning_active) {
-        ESP_LOGW("HIBERNACAO", "Fora do horário ativo (3h-9h). Entrando em deep sleep. Só acorda com RESET.");
+        ESP_LOGW("HIBERNACAO", "Fora do horário ativo (7h-19h). Entrando em deep sleep. Só acorda com RESET.");
         vTaskDelay(pdMS_TO_TICKS(2000));
+        gpio_set_level(LED2_GPIO, 0); // Garante LED desligado antes de hibernar
+        gpio_hold_en(LED2_GPIO);      // Mantém o estado do pino durante deep sleep
+        gpio_deep_sleep_hold_en();    // Ativa o hold global
         esp_sleep_disable_wakeup_source(ESP_SLEEP_WAKEUP_ALL);
         esp_deep_sleep_start();
         ESP_LOGE("HIBERNACAO", "ERRO: Código continuou após esp_deep_sleep_start()! Isto NÃO deveria acontecer.");
@@ -332,6 +347,9 @@ void check_battery_and_sleep(void) {
             esp_rmaker_param_update_and_notify(battery_status_param, esp_rmaker_str("Entrar em hibernação"));
         }
         vTaskDelay(pdMS_TO_TICKS(2000));
+        gpio_set_level(LED2_GPIO, 0); // Garante LED desligado antes de hibernar
+        gpio_hold_en(LED2_GPIO);      // Mantém o estado do pino durante deep sleep
+        gpio_deep_sleep_hold_en();    // Ativa o hold global
         ESP_LOGW("HIBERNACAO", "Entrando em deep sleep. Só acorda com RESET.");
         esp_sleep_disable_wakeup_source(ESP_SLEEP_WAKEUP_ALL);
         esp_deep_sleep_start();
@@ -386,4 +404,13 @@ void app_driver_monitor_state(void)
     int led5 = gpio_get_level(LED2_GPIO);
     int relay19 = gpio_get_level(BATTERY_RELAY_GPIO);
     ESP_LOGI("MONITOR", "GPIO5 (LED): %d | GPIO19 (relé): %d", led5, relay19);
+}
+
+// --- Função para ser chamada após a sincronização do horário SNTP ---
+void set_boot_time(void) {
+    boot_time = time(NULL);
+    struct tm info;
+    localtime_r(&boot_time, &info);
+    ESP_LOGI(TAG, "set_boot_time: boot_time=%lld (%04d-%02d-%02d %02d:%02d:%02d)",
+        (long long)boot_time, info.tm_year+1900, info.tm_mon+1, info.tm_mday, info.tm_hour, info.tm_min, info.tm_sec);
 }

@@ -1,0 +1,246 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAS�ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15728
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.3.3-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Jun  9 2025 01:18:35[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v3.1[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 esp_secure_cert  unknown          3f 06 0000d000 00002000[0m
+[0;32mI (77) boot:  1 nvs_key          NVS keys         01 04 0000f000 00001000[0m
+[0;32mI (85) boot:  2 nvs              WiFi data        01 02 00010000 00006000[0m
+[0;32mI (92) boot:  3 otadata          OTA data         01 00 00016000 00002000[0m
+[0;32mI (99) boot:  4 phy_init         RF data          01 01 00018000 00001000[0m
+[0;32mI (107) boot:  5 ota_0            OTA app          00 10 00020000 001e0000[0m
+[0;32mI (115) boot:  6 ota_1            OTA app          00 11 00200000 001e0000[0m
+[0;32mI (122) boot:  7 reserved         unknown          06 06 003e0000 0001a000[0m
+[0;32mI (130) boot:  8 fctry            WiFi data        01 02 003fa000 00006000[0m
+[0;32mI (137) boot: End of partition table[0m
+[0;32mI (142) esp_image: segment 0: paddr=00020020 vaddr=3f400020 size=4ba2ch (309804) map[0m
+[0;32mI (256) esp_image: segment 1: paddr=0006ba54 vaddr=3ff80063 size=00008h (     8) load[0m
+[0;32mI (256) esp_image: segment 2: paddr=0006ba64 vaddr=3ffbdb60 size=045b4h ( 17844) load[0m
+[0;32mI (269) esp_image: segment 3: paddr=00070020 vaddr=400d0020 size=108598h (1082776) map[0m
+[0;32mI (642) esp_image: segment 4: paddr=001785c0 vaddr=3ffc2114 size=019dch (  6620) load[0m
+[0;32mI (644) esp_image: segment 5: paddr=00179fa4 vaddr=40080000 size=1f250h (127568) load[0m
+[0;32mI (697) esp_image: segment 6: paddr=001991fc vaddr=400c0000 size=00064h (   100) load[0m
+[0;32mI (713) boot: Loaded app from partition at offset 0x20000[0m
+[0;32mI (713) boot: Disabling RNG early entropy source...[0m
+[0;32mI (726) cpu_start: Multicore app[0m
+[0;32mI (734) cpu_start: Pro cpu start user code[0m
+[0;32mI (734) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (735) app_init: Application information:[0m
+[0;32mI (737) app_init: Project name:     switch[0m
+[0;32mI (742) app_init: App version:      1.0[0m
+[0;32mI (747) app_init: Compile time:     Jun  9 2025 01:18:07[0m
+[0;32mI (753) app_init: ELF file SHA256:  e4d4b80c5...[0m
+[0;32mI (758) app_init: ESP-IDF:          v5.3.3-dirty[0m
+[0;32mI (763) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (768) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (773) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (778) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (785) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (791) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (797) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (803) heap_init: At 3FFCB7D0 len 00014830 (82 KiB): DRAM[0m
+[0;32mI (809) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (816) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (822) heap_init: At 4009F250 len 00000DB0 (3 KiB): IRAM[0m
+[0;32mI (830) spi_flash: detected chip: generic[0m
+[0;32mI (833) spi_flash: flash io: dio[0m
+[0;33mW (837) ADC: legacy driver is deprecated, please migrate to `esp_adc/adc_oneshot.h`[0m
+[0;32mI (846) coexist: coex firmware version: 85a8de8[0m
+[0;32mI (852) main_task: Started on CPU0[0m
+[0;32mI (862) main_task: Calling app_main()[0m
+[0;31mE (862) network_prov_mgr: esp_wifi_restore fail, ret is 12289[0m
+[0;32mI (862) esp_rmaker_console: Initialising UART on port 0[0m
+[0;32mI (872) uart: queue free spaces: 8[0m
+[0;32mI (872) esp_rmaker_commands: Registering command: reboot[0m
+[0;32mI (872) esp_rmaker_commands: Registering command: up-time[0m
+[0;32mI (882) esp_rmaker_commands: Registering command: mem-dump[0m
+[0;32mI (892) esp_rmaker_commands: Registering command: task-dump[0m
+[0;32mI (892) esp_rmaker_commands: Registering command: cpu-dump[0m
+[0;32mI (902) esp_rmaker_commands: Registering command: sock-dump[0m
+[0;32mI (912) esp_rmaker_commands: Registering command: heap-trace[0m
+[0;32mI (912) esp_rmaker_commands: Registering command: reset-to-factory[0m
+[0;32mI (922) esp_rmaker_commands: Registering command: local-time[0m
+[0;32mI (932) esp_rmaker_commands: Registering command: tz-set[0m
+[0;32mI (932) esp_rmaker_commands: Registering command: add-user[0m
+[0;32mI (942) esp_rmaker_commands: Registering command: get-node-id[0m
+[0;32mI (942) esp_rmaker_commands: Registering command: wifi-prov[0m
+[0;32mI (952) esp_rmaker_commands: Registering command: cmd[0m
+[0;32mI (962) esp_rmaker_commands: Registering command: sign-data[0m
+[0;32mI (962) gpio: GPIO[13]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (972) gpio: GPIO[13]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:3 [0m
+[0;32mI (982) gpio: GPIO[12]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;31mE (992) gpio: gpio_install_isr_service(502): GPIO isr service already installed[0m
+[0;32mI (1002) gpio: GPIO[12]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:3 [0m
+[0;32mI (1012) gpio: GPIO[5]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1022) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1032) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;31mE (1042) esp_rmaker_device: Device handle or param name cannot be NULL[0m
+[0;32mI (1112) wifi:wifi driver task: 3ffd2b68, prio:23, stack:6656, core=0[0m
+[0;32mI (1132) wifi:wifi firmware version: b0b320f[0m
+[0;32mI (1132) wifi:wifi certification version: v7.0[0m
+[0;32mI (1132) wifi:config NVS flash: enabled[0m
+[0;32mI (1132) wifi:config nano formating: disabled[0m
+[0;32mI (1142) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1142) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1152) wifi:Init management short buffer num: 32[0m
+[0;32mI (1152) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (1162) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1162) wifi:Init static rx buffer num: 10[0m
+[0;32mI (1162) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1172) wifi_init: rx ba win: 6[0m
+[0;32mI (1172) wifi_init: accept mbox: 6[0m
+[0;32mI (1182) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1182) wifi_init: udp mbox: 6[0m
+[0;32mI (1182) wifi_init: tcp mbox: 6[0m
+[0;32mI (1192) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1192) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1202) wifi_init: tcp mss: 1440[0m
+[0;32mI (1202) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1202) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1222) esp_rmaker_work_queue: Work Queue created.[0m
+[0;32mI (1242) esp_mqtt_glue: AWS PPI: ?Platform=APN3|A0|RM|EX00|RMDev|1x0|1C6920A3B5EC[0m
+[0;32mI (1242) esp_mqtt_glue: Initialising MQTT[0m
+[0;32mI (1242) esp_rmaker_mqtt_budget: MQTT Budgeting initialised. Default: 100, Max: 1024, Revive count: 1, Revive period: 5[0m
+[0;33mW (1252) app_main: [DEBUG] event_handler: event_base=0x3f405f2c, event_id=1[0m
+[0;32mI (1262) app_main: RainMaker Initialised.[0m
+[0;32mI (1272) esp_rmaker_node: Node ID ----- C3hxXXzifDrh9CQjyNLhjQ[0m
+[0;32mI (1272) esp_rmaker_ota_using_topics: OTA enabled with Topics[0m
+[0;32mI (1282) esp_rmaker_ota: OTA state = 2[0m
+[0;32mI (1282) esp_rmaker_time: Initializing SNTP. Using the SNTP server: pool.ntp.org[0m
+[0;32mI (1302) esp_rmaker_time_service: Time service enabled[0m
+[0;32mI (1302) esp_rmaker_time: SNTP already initialized.[0m
+[0;32mI (1312) app_insights: Enable CONFIG_ESP_INSIGHTS_ENABLED to get Insights.[0m
+[0;32mI (1312) esp_rmaker_core: Starting RainMaker Work Queue task[0m
+[0;32mI (1322) esp_rmaker_work_queue: RainMaker Work Queue task started.[0m
+[0;33mW (1332) HIBERNACAO: Fora do horário ativo (7h-19h). Entrando em deep sleep. Só acorda com RESET.[0m
+[0;32mI (1332) MONITOR: GPIO5 (LED): 0 | GPIO19 (relé): 0[0m
+[0;32mI (1342) tag: 0x3ffdb0b0   e5 02 4e 6f 76 61 00 01  00 80 01 00              |..Nova......|[0m
+[0;32mI (1352) network_prov_scheme_ble: BT memory released[0m
+[0;32mI (1352) app_wifi: Already provisioned, starting Wi-Fi STA[0m
+[0;32mI (1362) network_prov_scheme_ble: BTDM memory released[0m
+[0;32mI (1372) esp_rmaker_local: Event 6[0m
+[0;32mI (1372) phy_init: phy_version 4860,6b7a6e5,Feb  6 2025,14:47:07[0m
+[0;32mI (1462) wifi:mode : sta (1c:69:20:a3:b5:ec)[0m
+[0;32mI (1462) wifi:enable tsf[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15728
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.3.3-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Jun  9 2025 01:18:35[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v3.1[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 esp_secure_cert  unknown          3f 06 0000d000 00002000[0m
+[0;32mI (77) boot:  1 nvs_key          NVS keys         01 04 0000f000 00001000[0m
+[0;32mI (85) boot:  2 nvs              WiFi data        01 02 00010000 00006000[0m
+[0;32mI (92) boot:  3 otadata          OTA data         01 00 00016000 00002000[0m
+[0;32mI (99) boot:  4 phy_init         RF data          01 01 00018000 00001000[0m
+[0;32mI (107) boot:  5 ota_0            OTA app          00 10 00020000 001e0000[0m
+[0;32mI (115) boot:  6 ota_1            OTA app          00 11 00200000 001e0000[0m
+[0;32mI (122) boot:  7 reserved         unknown          06 06 003e0000 0001a000[0m
+[0;32mI (130) boot:  8 fctry            WiFi data        01 02 003fa000 00006000[0m
+[0;32mI (137) boot: End of partition table[0m
+[0;32mI (142) esp_image: segment 0: paddr=00020020 vaddr=3f400020 size=4ba2ch (309804) map[0m
+[0;32mI (256) esp_image: segment 1: paddr=0006ba54 vaddr=3ff80063 size=00008h (     8) load[0m
+[0;32mI (256) esp_image: segment 2: paddr=0006ba64 vaddr=3ffbdb60 size=045b4h ( 17844) load[0m
+[0;32mI (269) esp_image: segment 3: paddr=00070020 vaddr=400d0020 size=108598h (1082776) map[0m
+[0;32mI (642) esp_image: segment 4: paddr=001785c0 vaddr=3ffc2114 size=019dch (  6620) load[0m
+[0;32mI (644) esp_image: segment 5: paddr=00179fa4 vaddr=40080000 size=1f250h (127568) load[0m
+[0;32mI (697) esp_image: segment 6: paddr=001991fc vaddr=400c0000 size=00064h (   100) load[0m
+[0;32mI (713) boot: Loaded app from partition at offset 0x20000[0m
+[0;32mI (713) boot: Disabling RNG early entropy source...[0m
+[0;32mI (726) cpu_start: Multicore app[0m
+[0;32mI (734) cpu_start: Pro cpu start user code[0m
+[0;32mI (734) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (734) app_init: Application information:[0m
+[0;32mI (737) app_init: Project name:     switch[0m
+[0;32mI (742) app_init: App version:      1.0[0m
+[0;32mI (747) app_init: Compile time:     Jun  9 2025 01:18:07[0m
+[0;32mI (753) app_init: ELF file SHA256:  e4d4b80c5...[0m
+[0;32mI (758) app_init: ESP-IDF:          v5.3.3-dirty[0m
+[0;32mI (763) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (768) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (773) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (778) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (785) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (791) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (797) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (803) heap_init: At 3FFCB7D0 len 00014830 (82 KiB): DRAM[0m
+[0;32mI (809) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (816) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (822) heap_init: At 4009F250 len 00000DB0 (3 KiB): IRAM[0m
+[0;32mI (830) spi_flash: detected chip: generic[0m
+[0;32mI (833) spi_flash: flash io: dio[0m
+[0;33mW (837) ADC: legacy driver is deprecated, please migrate to `esp_adc/adc_oneshot.h`[0m
+[0;32mI (846) coexist: coex firmware version: 85a8de8[0m
+[0;32mI (852) main_task: Started on CPU0[0m
+[0;32mI (862) main_task: Calling app_main()[0m
+[0;31mE (862) network_prov_mgr: esp_wifi_restore fail, ret is 12289[0m
+[0;32mI (862) esp_rmaker_console: Initialising UART on port 0[0m
+[0;32mI (872) uart: queue free spaces: 8[0m
+[0;32mI (872) esp_rmaker_commands: Registering command: reboot[0m
+[0;32mI (872) esp_rmaker_commands: Registering command: up-time[0m
+[0;32mI (882) esp_rmaker_commands: Registering command: mem-dump[0m
+[0;32mI (892) esp_rmaker_commands: Registering command: task-dump[0m
+[0;32mI (892) esp_rmaker_commands: Registering command: cpu-dump[0m
+[0;32mI (902) esp_rmaker_commands: Registering command: sock-dump[0m
+[0;32mI (912) esp_rmaker_commands: Registering command: heap-trace[0m
+[0;32mI (912) esp_rmaker_commands: Registering command: reset-to-factory[0m
+[0;32mI (922) esp_rmaker_commands: Registering command: local-time[0m
+[0;32mI (932) esp_rmaker_commands: Registering command: tz-set[0m
+[0;32mI (932) esp_rmaker_commands: Registering command: add-user[0m
+[0;32mI (942) esp_rmaker_commands: Registering command: get-node-id[0m
+[0;32mI (942) esp_rmaker_commands: Registering command: wifi-prov[0m
+[0;32mI (952) esp_rmaker_commands: Registering command: cmd[0m
+[0;32mI (962) esp_rmaker_commands: Registering command: sign-data[0m
+[0;32mI (962) gpio: GPIO[13]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (972) gpio: GPIO[13]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:3 [0m
+[0;32mI (982) gpio: GPIO[12]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;31mE (992) gpio: gpio_install_isr_service(502): GPIO isr service already installed[0m
+[0;32mI (1002) gpio: GPIO[12]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:3 [0m
+[0;32mI (1012) gpio: GPIO[5]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1022) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1032) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;31mE (1042) esp_rmaker_device: Device handle or param name cannot be NULL[0m
+[0;32mI (1112) wifi:wifi driver task: 3ffd2b68, prio:23, stack:6656, core=0[0m
+[0;32mI (1132) wifi:wifi firmware version: b0b320f[0m
+[0;32mI (1132) wifi:wifi certification version: v7.0[0m
+[0;32mI (1132) wifi:config NVS flash: enabled[0m
+[0;32mI (1132) wifi:config nano formating: disabled[0m
+[0;32mI (1142) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1142) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1152) wifi:Init management short buffer num: 32[0m
+[0;32mI (1152) wifi:Init dynamic tx buffer

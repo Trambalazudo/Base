@@ -372,7 +372,7 @@ void app_main()
 
     // Cria uma task para atualizar a tensão periodicamente
     xTaskCreate(battery_voltage_task, "battery_voltage_task", 4096, NULL, 5, NULL);
-    xTaskCreate(battery_management_task, "battery_management_task", 4096, NULL, 5, NULL);
+    // xTaskCreate(battery_management_task, "battery_management_task", 4096, NULL, 5, NULL); // REMOVIDA DAQUI
     xTaskCreate(monitor_task, "monitor_task", 2048, NULL, 1, NULL);
     xTaskCreate(medir_bateria_manual_task, "medir_bateria_manual_task", 4096, NULL, 5, NULL);
 
@@ -406,7 +406,11 @@ void app_main()
         if (esp_rmaker_get_local_time_str(local_time, sizeof(local_time)) == ESP_OK) {
             ESP_LOGI(TAG, "Horário local antes da decisão de sleep: %s", local_time);
         }
+        extern void set_boot_time(void);
+        set_boot_time();
         check_battery_and_sleep();
+        // Agora sim, cria a task de gerenciamento de bateria
+        xTaskCreate(battery_management_task, "battery_management_task", 4096, NULL, 5, NULL);
     } else {
         ESP_LOGI(TAG, "Dispositivo não provisionado. Lógica de sleep desabilitada até concluir o provisionamento.");
     }
